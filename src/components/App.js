@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import UnauthorizedUser from "./unauthorized-user/UnauthorizedUser";
+import SignIn from './Sign-In/SignIn';
+import SignUp from './Sign-Up/SignUp';
 
 class App extends React.Component {
   render() {
@@ -8,6 +11,8 @@ class App extends React.Component {
       <div>
         <p>Hello World</p>
         <UnauthorizedUser />
+        <SignIn />
+       
       </div>
     );
   }
