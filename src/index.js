@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";
-import { addHelloWorld } from "./actions/social-media-app";
+import { setLoggedIn } from "./actions/social-media-app";
 
 // create a new redux store
 const socialMediaAppStore = createStore(socialMediaAppReducer);
@@ -16,7 +16,8 @@ socialMediaAppStore.subscribe(() => {
   console.log(socialMediaAppStore.getState());
 });
 
-socialMediaAppStore.dispatch(addHelloWorld("New User"));
+// set the logged in value to false
+socialMediaAppStore.dispatch(setLoggedIn(false));
 
 ReactDOM.render(
   <Provider store={socialMediaAppStore}>
