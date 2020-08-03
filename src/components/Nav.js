@@ -10,7 +10,7 @@ class Nav extends React.Component
       <nav>
         <ul>
           <li>
-            <Link to="/newsfeed">
+            <Link to="/NewsFeed">
               News Feed
             </Link>
           </li>
