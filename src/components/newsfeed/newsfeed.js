@@ -6,8 +6,7 @@ class NewsFeed extends React.Component {
   render() {
     return (
       <div>
-        <p>News Feed</p>
-        
+        <p>News Feed</p>        
       </div>
     );
   }

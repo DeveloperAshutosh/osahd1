@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
+import NewsFeed from "./components/Nav.js";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -18,6 +19,9 @@ socialMediaAppStore.subscribe(() => {
 
 // set the logged in value to false
 socialMediaAppStore.dispatch(setLoggedIn(false));
+
+
+
 
 ReactDOM.render(
   <Provider store={socialMediaAppStore}>
