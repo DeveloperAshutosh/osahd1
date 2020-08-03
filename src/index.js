@@ -6,6 +6,7 @@ import App from "./components/App";
 import Nav from "./components/Nav.js";
 import NewsFeed from "./components/NewsFeed"
 
+
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -23,6 +24,7 @@ socialMediaAppStore.subscribe(() => {
 // set the logged in value to false
 socialMediaAppStore.dispatch(setLoggedIn(false));
 
+//Adding Nav links
 const Root = store => (
   <Provider store={store.store}>
     <Router>

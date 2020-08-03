@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import {connect} from 'react-redux';
 
-
 class NewsFeed extends React.Component {
   render() {
     return (
