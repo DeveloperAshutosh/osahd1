@@ -22,6 +22,7 @@ socialMediaAppStore.subscribe(() => {
 // set the logged in value to false
 socialMediaAppStore.dispatch(setLoggedIn(false));
 
+//Adding Nav links
 const Root = store => (
   <Provider store={store.store}>
     <Router>
