@@ -4,6 +4,7 @@ import { BrowserRouter as Router,Route } from 'react-router-dom';
 import "./index.css";
 import App from "./components/App";
 import Nav from "./components/Nav.js";
+import NewsFeed from "./components/NewsFeed";
 
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
