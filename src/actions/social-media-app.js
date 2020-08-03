@@ -1,12 +1,45 @@
 /**
- * this action adds a hello message addressed to name in the redux store
- * @param {string} name a name to say hello to
+ * set the value of isLoggedIn (to true or false)
+ * @param {boolean} value
  */
-const addHelloWorld = (name) => {
+const setLoggedIn = (value) => {
   return {
-    type: "ADD_HELLO_WORLD",
-    value: name,
+    type: "SET_IS_LOGGED_IN",
+    value: value,
   };
 };
 
-export { addHelloWorld };
+/**
+ * store the current user in redux
+ * @param {object} user a user object with id, username.. etc
+ */
+const setCurrentUser = (user) => {
+  return {
+    type: "SET_CURRENT_USER",
+    value: user,
+  };
+};
+
+/**
+ * store the list of posts in redux
+ * @param {array} listOfPosts a list of posts
+ */
+const updatePosts = (listOfPosts) => {
+  return {
+    type: "UPDATE_POSTS",
+    value: listOfPosts,
+  };
+};
+
+/**
+ * store the list of users in redux
+ * @param {array} listOfUsers a list of users
+ */
+const updateUsers = (listOfUsers) => {
+  return {
+    type: "UPDATE_USERS",
+    value: listOfUsers,
+  };
+};
+
+export { updatePosts, updateUsers, setLoggedIn, setCurrentUser };

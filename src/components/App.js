@@ -12,7 +12,7 @@ class App extends React.Component {
         <p>Hello World</p>
         <UnauthorizedUser />
         <SignIn />
-       
+       <SignUp />
       </div>
     );
   }
