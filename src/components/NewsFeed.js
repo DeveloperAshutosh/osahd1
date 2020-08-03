@@ -16,4 +16,11 @@ class NewsFeed extends React.Component {
   }
 }
 
-export default connect(NewsFeed);
+function mapStateToProps (state) {
+  return {
+    stote: state,
+  };
+}
+
+
+export default connect(mapStateToProps)(NewsFeed);
