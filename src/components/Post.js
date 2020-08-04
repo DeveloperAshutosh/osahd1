@@ -4,7 +4,7 @@ import axios from 'axios'
 class Post extends Component{
     constructor() {
         super();
-        this.state ={
+        this.state = {
             title: []
         };
     }
@@ -15,9 +15,10 @@ class Post extends Component{
         }).then(data => {
             let title = data.posts.map((pic) => {
                 return(
+               
                     <ul>
                     <li key ={pic.posts}>
-{/* <img src={pic.picture.medium}/> */}
+
                     </li>
                     </ul>
                 )
@@ -28,13 +29,14 @@ class Post extends Component{
     }
     render() {
         return(
-            <div className ="container 2">
+            <>
+                 <button>Refresh</button>
                 <div className ="container1">
                     {this.state.title}
             </div>
-            </div>
+          </>
         )
-        }
     }
+}
     export default Post;
 
