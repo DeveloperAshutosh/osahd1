@@ -1,31 +1,38 @@
-import React, {useState, useEffect} from 'react'
+import React, { Component} from 'react';
 import axios from 'axios'
 
-function User() {
-    const [users, setUsers] = useState([]) 
-
-    useEffect((e) => {
-
-        axios.get('https://jsonstorage.net/api/items/4d56c6a1-9bd8-4795-b714-8b6e815d2edd')
-        .then(res => {
-            console.log(res)
-            setUsers(res.data.users)
+class User extends Component{
+    constructor() {
+        super();
+        this.state ={
+            pictures: []
+        };
+    }
+    componentDidMount() {
+        fetch('https://randomuser.me/api/?results=10')
+        .then(results => {
+            return results.json();
+        }).then(data => {
+            let pictures = data.results.map((pic) => {
+                return(
+                    <div key ={pic.results}>
+<img src={pic.picture.medium}/>
+                    </div>
+                )
+            })
+            this.setState({pictures: pictures});
         })
-        .catch(err =>{
-            console.log(err)
-        })
-    }, [])
-    return (
-        <div>
-           <ul>
-               "Users detail"
-    {users.map(user => (
-        <li key={user.id}>Name:{user.name} {"\n"}Username:{user.username}{"\n"}Email:{user.email}{"\n"}</li>
-    ))}
-    </ul> 
-        </div>
-    )
-}
-
-export default User;
+        
+    }
+    render() {
+        return(
+            <div className ="container 2">
+                <div className ="container1">
+                    {this.state.pictures}
+            </div>
+            </div>
+        )
+        }
+    }
+    export default User;
 
