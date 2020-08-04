@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import UnauthorizedUser from "./unauthorized-user/UnauthorizedUser";
 import User from './User';
-import Post from './Post';
+import Content from './Content';
 class App extends React.Component {
   render() {
     return (
@@ -11,7 +11,7 @@ class App extends React.Component {
         <UnauthorizedUser />
 
      <User />
-     <Post />
+    <Content />
       </div>
     );
   }
