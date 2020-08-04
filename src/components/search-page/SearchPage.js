@@ -14,7 +14,6 @@ class SearchPage extends React.Component {
   render() {
     return (
       <>
-        <Nav />
         <SearchBar />
         {this.renderUsers()}
       </>
