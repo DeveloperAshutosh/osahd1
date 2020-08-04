@@ -1,30 +1,23 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 
-class Post extends Component{
+class Post extends Component {
     constructor(props) {
         super(props);
     }
 
+    render() {
 
-
-
-
-
-render(){
-
-    return(
-        <>
-    <h3>{this.props.postData.title}</h3>
-    <p>{this.props.postData.body}</p>
-    </>
-    )
-   
-}
-
-
+        return (
+            <>
+                <h3>{this.props.postData.title}</h3>
+                <p>{this.props.postData.body}</p>
+            </>
+        )
 
     }
-    export default Post;
+
+}
+export default Post;
 
 
 
