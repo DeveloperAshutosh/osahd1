@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router,Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
 import App from "./components/App";
 import Nav from "./components/Nav.js";
-import NewsFeed from "./components/NewsFeed"
-
+import NewsFeed from "./components/NewsFeed";
+import SearchPage from "./components/search-page/SearchPage";
 
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
@@ -25,16 +25,16 @@ socialMediaAppStore.subscribe(() => {
 socialMediaAppStore.dispatch(setLoggedIn(false));
 
 //Adding Nav links
-const Root = store => (
+const Root = (store) => (
   <Provider store={store.store}>
     <Router>
       <Nav />
-      <Route path="/" component={App} exact/>
+      <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
+      <Route path="/Search" component={SearchPage} />
     </Router>
   </Provider>
 );
-
 
 ReactDOM.render(
   <Root store={socialMediaAppStore} />,

@@ -42,4 +42,21 @@ const updateUsers = (listOfUsers) => {
   };
 };
 
-export { updatePosts, updateUsers, setLoggedIn, setCurrentUser };
+/**
+ * store a list of search results
+ * @param {array} searchResult all users that match a search
+ */
+const setSearchResults = (searchResult) => {
+  return {
+    type: "SET_SEARCH_RESULTS",
+    value: searchResult,
+  };
+};
+
+export {
+  updatePosts,
+  updateUsers,
+  setLoggedIn,
+  setCurrentUser,
+  setSearchResults,
+};
