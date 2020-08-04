@@ -13,10 +13,12 @@ class Post extends Component{
 render(){
 
     return(
-    // <p>{this.props.postData.title}</p>
-    <>
+        <>
+    <h3>{this.props.postData.title}</h3>
+    <p>{this.props.postData.body}</p>
     </>
     )
+   
 }
 
 

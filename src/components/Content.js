@@ -23,7 +23,7 @@ class Content extends Component{
         return(
             <>
                  <button
-                 onclick={ () => {
+                 onClick={ () => {
 console.log ("button clicked");
                  }}
                  >Refresh</button>
@@ -31,10 +31,9 @@ console.log ("button clicked");
                     {this.state.title.map((pic) => {
            
                return (
-                   <p>hello</p>
+                <Post postData={pic} />
                )
-                   
-                //    <Post postData={pic} />
+              
                     
                     }
             )}
