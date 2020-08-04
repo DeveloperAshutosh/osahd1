@@ -9,7 +9,8 @@ class NewsFeed extends React.Component {
         <h2>News Feed</h2> 
         <ul>
            User's News Feed 
-        </ul>       
+        </ul> 
+              
       </div>
     );
   }
