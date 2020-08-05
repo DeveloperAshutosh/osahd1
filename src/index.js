@@ -3,13 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router,Route } from 'react-router-dom';
 import "./index.css";
 import App from "./components/App";
-<<<<<<< HEAD
-=======
-import Nav from "./components/Nav.js";
-import NewsFeed from "./components/NewsFeed";
 
-import * as serviceWorker from "./serviceWorker";
->>>>>>> fab986b37dad983d24fa87d9de8d938680169e8b
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";
@@ -30,9 +24,8 @@ socialMediaAppStore.dispatch(setLoggedIn(false));
 const Root = store => (
   <Provider store={store.store}>
     <Router>
-      <Nav />
-      <Route path="/" component={App} exact/>
-      <Route path="/NewsFeed" component={NewsFeed} />
+     
+      
     </Router>
   </Provider>
 );

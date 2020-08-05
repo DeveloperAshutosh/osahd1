@@ -31,26 +31,35 @@ class SignIn extends React.Component
     
     handleSubmit = (event) =>{
       event.preventDefault();
-      if (this.email.state === "")
+      if (this.state.email === "")
       {
+        
         document.querySelector("#warning").innerHTML = "cant be empty";
       }
+      
+      console.log(this.state);
       
     }
     render() 
     {
         return (
             <div>
-                <button>Sign in</button>
-                <button>Sign up</button>
+               
+                <button>Sign In</button>
               <form onSubmit={this.handleSubmit}>
                   <h3>Sign In</h3>
                   <label htmlFor = "email">Enter email</label>
                   <div id = "warning" onSubmit= {this.handleSubmit}  ></div>
-                  <input type = "email" id = "email" onChange = {this.handleChange}/>
+                  <input type = "email" id = "email" value = {this.state.email}
+                  onChange = {this.handleChange}/>
                   <label htmlFor = "password">Enter password</label>
-                  <input type = "password" id = "password" onChange = {this.handleChange}/>
-                  <input type = "submit" onSubmit ={this.handleSubmit} />
+                  <input type = "password" id = "password" value = {this.state.password}
+                  onChange = {this.handleChange}/>
+                  <button type = "submit" onSubmit ={this.handleSubmit} > Sign In </button>
+                  <button type = "submit" onSubmit = {this.handleSubmit}> Sign Up</button>
+                  <p className = "logo"></p>
+                  <p className = "#"> Share... Express...Connect...Your world closer together </p>
+
               </form>  
             </div>
         )
