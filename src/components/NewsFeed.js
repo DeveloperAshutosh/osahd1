@@ -3,6 +3,7 @@ import "./App.css";
 import {connect} from 'react-redux';
 import addNewsFeed from '../actions/NewsFeedActions';
 import Content from "./Content";
+import UnauthorizedUser from "./unauthorized-user/UnauthorizedUser"
 
 
 class NewsFeed extends React.Component {
@@ -89,6 +90,7 @@ class NewsFeed extends React.Component {
             <input type="submit" value="Post Feed" onClick={this.addPost}/>
           </form>  
           <Content />
+          <UnauthorizedUser/>
       </>
     );
     

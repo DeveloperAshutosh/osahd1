@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import UnauthorizedUser from "./unauthorized-user/UnauthorizedUser";
+// import UnauthorizedUser from "./unauthorized-user/UnauthorizedUser";
 
 
 class App extends React.Component {
@@ -8,7 +8,7 @@ class App extends React.Component {
     return (
       <div>
         <p>Hello World</p>
-        <UnauthorizedUser />
+        {/* <UnauthorizedUser /> */}
 
       </div>
     );
