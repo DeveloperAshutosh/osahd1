@@ -1,13 +1,9 @@
 import React from "react";
 import "./App.css";
-<<<<<<< HEAD
 import {connect} from 'react-redux';
 import addNewsFeed from '../actions/NewsFeedActions';
-
-=======
-import { connect } from 'react-redux';
 import Content from "./Content";
->>>>>>> b9d1c9bdc0bf80b3f0abfa6249ea8e0127acb395
+
 
 class NewsFeed extends React.Component {
 
@@ -71,8 +67,11 @@ class NewsFeed extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <>
+       <button onClick={() => {
+          console.log("button clicked");
+        }}>Logout</button>
+
         <h1>News Feed</h1> 
         <form>
                 <input
@@ -89,23 +88,8 @@ class NewsFeed extends React.Component {
                <br /><br />
             <input type="submit" value="Post Feed" onClick={this.addPost}/>
           </form>  
-         
+          <Content />
       </>
-     
-      
-=======
-      <div>
-        <button onClick={() => {
-          console.log("button clicked");
-        }}>Logout</button>
-        <h2>News Feed</h2>
-        <ul>
-          User's News Feed
-        </ul>
-        <Content />
-      </div>
-
->>>>>>> b9d1c9bdc0bf80b3f0abfa6249ea8e0127acb395
     );
     
   }
