@@ -1,15 +1,8 @@
-#### Clone the repo
+Milestone 2 - React/Redux
 
-run `git clone https://github.com/TECHCareers-by-Manpower/milestone-2-react-redux-project-osahd.git YOUR_FOLDER_NAME` in terminal/bash
+OSAHD is a social media website that is created using HTML5, CSS3, ES6 JavaScript, git within a team context, React,
+React-Redux, and React-Router.
 
-#### Install node modules
+Team Member: Osa Aimola, Shailza Sharma, Ashutosh Kaushai, Harpreet Kour, Dinh Thai
 
-run `npm install` in terminal/bash
-
-#### Installed Modules
-
-Redux
-React-Redux
-React-Router-Dom
-Axios: `import axios from "axios";`
-Uuid: `import { v4 as uuidv4 } from "uuid";`
+https://trello.com/b/SpIkFVNU/osahd-social-media
