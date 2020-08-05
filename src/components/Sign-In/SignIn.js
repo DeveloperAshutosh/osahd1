@@ -53,6 +53,16 @@ class SignIn extends React.Component
               }
           }
       }
+      if (!userExists ){
+          document.querySelector("#warning").innerHTML = "User doesn't exits";
+
+      }
+      else if (this.state.password.trim === ""){
+        document.querySelector("#warning").innerHTML = "Password is Missing";
+      }
+      else{
+          
+      }
       
     }
     render() 

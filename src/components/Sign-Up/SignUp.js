@@ -10,7 +10,7 @@ const initialState  = {
     password: "",
     passwordConfirmation:"",
     registrationErrors:"",
-    interests:{},
+    interests:[],
     gender:"",
     age:""
     }
@@ -65,39 +65,33 @@ class SignUp extends React.Component
             document.querySelector("#emailWarning").innerHTML = "This email already exists";
         }
         
-        else if(this.state.email.trim === "" || this.state.name.trim === "" 
-        || this.state.password.trim === "" ||this.state.password !== 
-        this.state.passwordConfirmation || this.state.gender.trim === "")
+        else if(this.state.email.trim() === "" || this.state.name.trim() === "" 
+        || this.state.password.trim() === "" ||this.state.password !== 
+        this.state.passwordConfirmation || this.state.gender.trim() === "")
         {
             
-            if (this.state.name.trim === ""){
+            if (this.state.name.trim() === ""){
                 document.querySelector("#nameWarning").innerHTML = "Name can not be blank";
 
             }
             else {
                 document.querySelector("#nameWarning").innerHTML = "";
             }
-            if (this.state.password.trim === ""){
+            if (this.state.password.trim() === ""){
                 document.querySelector("#passwordWarning").innerHTML = "password can not be blank";
 
             }
             else{
                 document.querySelector("#passwordWarning").innerHTML = "";
             }
-            if (this.state.password.trim !== this.state.passwordConfirmation){
+            if (this.state.password.trim() !== this.state.passwordConfirmation){
                 document.querySelector("#passwordConfirmationWarning").innerHTML = "Password doesn't match";
 
             }
             else{
                 document.querySelector("#passwordConfirmationWarning").innerHTML = "";
             }
-            if (this.state.gender.trim === ""){
-                document.querySelector("#genderWarning").innerHTML = "Please pick your gender";
-
-            }
-            else {
-                document.querySelector("#genderWarning").innerHTML = "";
-            }
+            
 
         }
         
