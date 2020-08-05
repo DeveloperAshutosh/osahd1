@@ -3,15 +3,11 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
 import App from "./components/App";
-<<<<<<< HEAD
 
-=======
 import Nav from "./components/Nav.js";
 import NewsFeed from "./components/NewsFeed";
 import SearchPage from "./components/search-page/SearchPage";
 import HomePage from "./components/HomePage";
-import * as serviceWorker from "./serviceWorker";
->>>>>>> master
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";
@@ -32,16 +28,11 @@ socialMediaAppStore.dispatch(setLoggedIn(false));
 const Root = (store) => (
   <Provider store={store.store}>
     <Router>
-<<<<<<< HEAD
-     
-      
-=======
       <Nav />
       <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />
       <Route path="/HomePage" component={HomePage} />
->>>>>>> master
     </Router>
   </Provider>
 );
@@ -54,4 +45,3 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-
