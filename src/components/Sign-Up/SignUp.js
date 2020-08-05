@@ -56,7 +56,7 @@ class SignUp extends React.Component
         for (let newuser of this.state.users){
             console.log(user);
             if (newuser.email === this.state.email){
-                return
+                
                 userExists = true;
             }
 
@@ -65,18 +65,24 @@ class SignUp extends React.Component
             alert("runs");
             document.querySelector("#nameWarning").innerHTML = "This email already exists";
         }
-        if(this.state.email=== ""){
-            document.querySelector("#nameWarning").innerHTML = "Email can not be blank";
+        
+        else if(this.state.email.trim === "" || this.state.name.trim === "" || this.state.password.trim === "" ||this.state.password !== this.state.passwordConfirmation)
+        {
+            
+            if (this.state.name.trim === ""){
+                document.querySelector("#nameWarning").innerHTML = "Name can not be blank";
+
+            }
+            if (this.state.password.trim === ""){
+                document.querySelector("#passwordWarning").innerHTML = "password can not be blank";
+
+            }
+            if (this.state.password.trim !== this.state.passwordConfirmation){
+                document.querySelector("#passwordConfirmationWarning").innerHTML = "Password doesnt match";
+
+            }
         }
-        if(this.state.name=== ""){
-            document.querySelector("#nameWarning").innerHTML = "Name can not be blank";
-        }
-        if(this.state.password=== ""){
-            document.querySelector("#nameWarning").innerHTML = "Password can not be blank";
-        }
-        if(this.state.password !== this.state.passwordConfirmation){
-            document.querySelector("#nameWarning").innerHTML = "Password doesn't match";
-        }
+        
         else{
             
             listOfUsers.push(user);
@@ -113,20 +119,23 @@ class SignUp extends React.Component
                   
                   <input type = "text" id = "name" value = {this.state.name} 
                   onChange = {this.handleChange} />
+                  <div id="emailWarning"></div>
                   <label htmlFor = "email">Enter email</label>
                   <input type = "email" id = "email" value = {this.state.email} 
                   onChange = {this.handleChange} />
+                  <div id="passwordWarning"></div>
                   <label htmlFor = "password">Enter password</label>
                   <input type = "password" id = "password" value = {this.state.password} 
-                  onChange = {this.handleChange} required/>
+                  onChange = {this.handleChange} />
+                  <div id="passwordConfirmationWarning"></div>
                   <label htmlFor = "passwordConfirmation">Confirm Password</label>
                   <input type = "password" id = "passwordConfirmation" value = {this.state.passwordConfirmation} 
-                  onChange = {this.handleChange} required/>
+                  onChange = {this.handleChange} />
                   <label htmlFor = "interests">Enter your Interests </label>
                   <input type = "text" id = "interests" value = {this.state.interests}
                    onChange = {this.handleChange}/>
                   <label htmlFor = "gender">Enter your Gender </label>
-                  <select id = "gender" value = {this.state.gender} onChange = {this.handleChange}>
+                  <select id = "gender" value = {this.state.gender} onChange = {this.handleChange} required>
                      <option></option>
                      <option  >Male</option>
                      <option  >Female</option>
