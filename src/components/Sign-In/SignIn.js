@@ -1,9 +1,12 @@
 import React  from 'react';
-const formValid = formErrors =>{
-    let valid =true;
-    Object.values(formErrors).forEach(val =>{
-        val.length > 0 && (valid = false);
-    });
+import axios from 'axios';
+
+
+const initialState = {
+    email: "",
+    password: "",
+    warning: "",
+    
 }
 
 class SignIn extends React.Component 
@@ -12,13 +15,17 @@ class SignIn extends React.Component
 
     {
         super(props);
-        this.state = {
-            email: "",
-            password: "",
-            warning: "",
-            
-        }
+        this.state = initialState;
+        this.handleSubmit = this.handleSubmit.bind(this);
 
+    }
+    getUsers()
+    {
+        axios.get('https://jsonstorage.net/api/items/4d56c6a1-9bd8-4795-b714-8b6e815d2edd')
+        .then((response) =>{
+            this.setState (response.data);
+
+        });  
     }
    
     handleChange = (event) =>{
@@ -28,16 +35,24 @@ class SignIn extends React.Component
      
         });
     }
+
     
     handleSubmit = (event) =>{
       event.preventDefault();
-      if (this.state.email === "")
-      {
-        
-        document.querySelector("#warning").innerHTML = "cant be empty";
+      const user  = {
+          email: this.state.email,
+          password:this.state.password
+      } 
+      let userExists =  false;
+      let userMatched ;
+      for (let user of this.state.users ){
+          if(user.email === this.state.email){
+              if(user.password === this.state.password){
+                  userExists = true;
+                  userMatched = user;
+              }
+          }
       }
-      
-      console.log(this.state);
       
     }
     render() 
