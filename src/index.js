@@ -6,7 +6,7 @@ import App from "./components/App";
 import Nav from "./components/Nav.js";
 import NewsFeed from "./components/NewsFeed";
 import SearchPage from "./components/search-page/SearchPage";
-
+import HomePage from "./components/HomePage";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -32,6 +32,7 @@ const Root = (store) => (
       <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />
+      <Route path="/HomePage" component={HomePage} />
     </Router>
   </Provider>
 );

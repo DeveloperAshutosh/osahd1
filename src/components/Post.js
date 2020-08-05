@@ -9,8 +9,12 @@ class Post extends Component {
 
         return (
             <>
+            
                 <h3>{this.props.postData.title}</h3>
                 <p>{this.props.postData.body}</p>
+                <button onClick={() => {
+                    console.log("button clicked");
+                }}> Delete</button>
             </>
         )
 
