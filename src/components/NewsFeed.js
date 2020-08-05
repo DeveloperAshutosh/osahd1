@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import {connect} from 'react-redux';
 import addNewsFeed from '../actions/NewsFeedActions';
+import Content from "./Content";
 
 
 class NewsFeed extends React.Component {
@@ -67,6 +68,10 @@ class NewsFeed extends React.Component {
   render() {
     return (
       <>
+       <button onClick={() => {
+          console.log("button clicked");
+        }}>Logout</button>
+
         <h1>News Feed</h1> 
         <form>
                 <input
@@ -83,16 +88,14 @@ class NewsFeed extends React.Component {
                <br /><br />
             <input type="submit" value="Post Feed" onClick={this.addPost}/>
           </form>  
-         
+          <Content />
       </>
-     
-      
     );
     
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     store: state,
   };
