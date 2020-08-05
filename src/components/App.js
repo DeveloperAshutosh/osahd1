@@ -11,6 +11,7 @@ class App extends React.Component {
         <p>Hello World</p>
         <UnauthorizedUser />
         <SignUp />
+        <SignIn />
       </div>
     );
   }
