@@ -3,6 +3,7 @@ const initialState = {
   currentUser: null,
   posts: [],
   users: [],
+  searchResults: [],
 };
 
 /**
@@ -35,6 +36,11 @@ const socialMediaAppReducer = (state = initialState, action) => {
     // update the list of users in redux
     case "UPDATE_USERS":
       temporaryState.users = action.value;
+      return temporaryState;
+
+    // update the list of search results
+    case "SET_SEARCH_RESULTS":
+      temporaryState.searchResults = action.value;
       return temporaryState;
 
     // handle values that do not match any defined case
