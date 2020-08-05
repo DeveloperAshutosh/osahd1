@@ -6,7 +6,7 @@ import App from "./components/App";
 import Nav from "./components/Nav.js";
 import NewsFeed from "./components/NewsFeed";
 import SearchPage from "./components/search-page/SearchPage";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/homepage/HomePage";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
