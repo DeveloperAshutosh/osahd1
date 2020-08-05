@@ -66,7 +66,16 @@ class SignUp extends React.Component
             document.querySelector("#nameWarning").innerHTML = "This email already exists";
         }
         if(this.state.email=== ""){
-            document.querySelector("#nameWarning").innerHTML = "cant be empty";
+            document.querySelector("#nameWarning").innerHTML = "Email can not be blank";
+        }
+        if(this.state.name=== ""){
+            document.querySelector("#nameWarning").innerHTML = "Name can not be blank";
+        }
+        if(this.state.password=== ""){
+            document.querySelector("#nameWarning").innerHTML = "Password can not be blank";
+        }
+        if(this.state.password !== this.state.passwordConfirmation){
+            document.querySelector("#nameWarning").innerHTML = "Password doesn't match";
         }
         else{
             
