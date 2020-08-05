@@ -1,21 +1,27 @@
 import React from "react";
 import "./App.css";
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import Content from "./Content";
 
 class NewsFeed extends React.Component {
   render() {
     return (
       <div>
-        <h2>News Feed</h2> 
+        <button onClick={() => {
+          console.log("button clicked");
+        }}>Logout</button>
+        <h2>News Feed</h2>
         <ul>
-           User's News Feed 
-        </ul>       
+          User's News Feed
+        </ul>
+        <Content />
       </div>
+
     );
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     stote: state,
   };

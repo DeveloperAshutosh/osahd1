@@ -8,9 +8,10 @@ class Nav extends React.Component {
       <nav>
         <ul>
           <li>
+          <Link to="/HomePage">Home Page</Link>
             <Link to="/NewsFeed">News Feed</Link>
             <Link to="/Search">Search Page</Link>
-          </li>
+                      </li>
         </ul>
       </nav>
     );

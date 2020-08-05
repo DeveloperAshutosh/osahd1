@@ -26,6 +26,8 @@ class Content extends Component {
                         console.log("button clicked");
                     }}
                 >Refresh</button>
+                   
+                
                 <div className="container1">
                     {this.state.title.map((pic) => {
 
