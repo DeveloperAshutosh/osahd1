@@ -12,6 +12,8 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";
 import { setLoggedIn } from "./actions/social-media-app";
+import SignUp from "./components/sign-up/SignUp";
+import SignIn from "./components/Sign-In/SignIn";
 
 // create a new redux store
 const socialMediaAppStore = createStore(socialMediaAppReducer);
@@ -33,6 +35,8 @@ const Root = (store) => (
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />
       <Route path="/HomePage" component={HomePage} />
+      <Route path = "/sign-up/SignUp" component = {SignUp}/>
+      <Route path = "/Sign-In/SignIn" component = {SignIn}/>
     </Router>
   </Provider>
 );

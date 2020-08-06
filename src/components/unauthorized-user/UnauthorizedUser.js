@@ -1,13 +1,30 @@
 import React from "react";
 import "./UnauthorizedUser.css";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 
 class UnauthorizedUser extends React.Component {
+ 
   render() {
     return (
       <>
+      <p className = "logo"></p>
         <p>Posts are only visible to logged in users.</p>
         <a href="#">Sign in or Sign Up </a>
+        <nav>
+        <ul>
+          <li>
+          <Link to="./Sign-In/SignIn">Sign In</Link>
+          </li>
+          <li>
+            <Link to="./sign-up/SignUp">Sign Up</Link>
+          </li>
+            
+         
+        </ul>
+      </nav>
+       
       </>
     );
   }
