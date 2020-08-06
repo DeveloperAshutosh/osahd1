@@ -124,12 +124,12 @@ class NewsFeed extends React.Component {
           this.props.dispatch(updatePosts(pushData)); //dispatch the updated posts data
 
         })
-
+    }
       this.setState({
         newsFeed: "",
         newsFeedDesc: ""
       });
-    }
+    
 
   }
 
