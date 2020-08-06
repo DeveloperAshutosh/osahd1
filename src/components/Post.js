@@ -33,7 +33,7 @@ class Post extends Component {
 
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=fr&dt=t&q=${this.props.postData.title}`
+        `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.props.postData.title}`
       )
       .then((response) => {
         return response.data[0];
@@ -47,10 +47,9 @@ class Post extends Component {
         this.setState({ title: text });
       });
 
-    let currentLanguage = this.state.source;
     this.setState({
-      source: currentLanguage === "en" ? "fr" : "en",
-      target: currentLanguage === "en" ? "fr" : "en",
+      source: this.state.source === "en" ? "fr" : "en",
+      target: this.state.target === "en" ? "fr" : "en",
     });
   }
 
