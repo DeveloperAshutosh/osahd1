@@ -28,7 +28,7 @@ socialMediaAppStore.dispatch(setLoggedIn(false));
 const Root = (store) => (
   <Provider store={store.store}>
     <Router>
-      <Nav />
+     
       <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />

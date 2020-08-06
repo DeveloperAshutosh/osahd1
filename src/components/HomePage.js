@@ -16,8 +16,7 @@ class HomePage extends React.Component {
           Logout
         </button>
 
-        <SignIn />
-        <SignUp />
+        
       </>
     );
   }
