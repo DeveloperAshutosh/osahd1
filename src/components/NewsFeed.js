@@ -105,8 +105,9 @@ class NewsFeed extends React.Component {
 
         })
 
-        this.state.newsFeed="";
-        this.state.newsFeedDesc="";
+this.setState({
+        newsFeed: "",
+        newsFeedDesc:""});
     } 
 
   }
