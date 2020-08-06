@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Nav from "./Nav";
 import { connect } from 'react-redux';
 import addNewsFeed from '../actions/NewsFeedActions';
 import Content from "./Content";
@@ -8,6 +9,7 @@ import axios from 'axios';
 import { updatePosts } from '../actions/social-media-app';
 import Bio from './bio/Bio';
 import UnauthorizedUser from './unauthorized-user/UnauthorizedUser';
+
 
 
 class NewsFeed extends React.Component {
@@ -30,7 +32,7 @@ class NewsFeed extends React.Component {
     } else {
       return (
         <>
-
+<Nav />
           <button onClick={() => {
             console.log("button clicked");
           }}>Logout</button>
