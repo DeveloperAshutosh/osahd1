@@ -3,14 +3,9 @@ import "./App.css";
 import { connect } from 'react-redux';
 import addNewsFeed from '../actions/NewsFeedActions';
 import Content from "./Content";
-<<<<<<< HEAD
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { updatePosts } from '../actions/social-media-app';
-
-
-=======
->>>>>>> 9af58e1150665a9b1b709da6d0e1a6bc2aee74ea
 
 
 class NewsFeed extends React.Component {
