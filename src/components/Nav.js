@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux"; 
+
 
 import { setLoggedIn } from ".././actions/social-media-app";
 
@@ -8,7 +8,7 @@ import { setLoggedIn } from ".././actions/social-media-app";
 
 class Nav extends React.Component {
   logout (){
-    this.props.dispatch(setLoggedIn(true));
+    this.props.dispatch(setLoggedIn(false));
   }
 
   

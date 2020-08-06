@@ -98,7 +98,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <div>
-       <Link to="./sign-up/SignUp"> <button  >  Sign Up</button> </Link>
+       <Link to="./sign-up/SignUp">   Sign Up</Link>
         <form onSubmit={this.handleSubmit}>
           <h3>Sign In</h3>
           <label htmlFor="email">Enter email</label>

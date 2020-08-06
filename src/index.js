@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";
 import { setLoggedIn } from "./actions/social-media-app";
 import SignUp from "./components/sign-up/SignUp";
-import SignIn from "./components/Sign-In/SignIn";
+import SignIn from "./components/sign-in/SignIn";
 
 // create a new redux store
 const socialMediaAppStore = createStore(socialMediaAppReducer);
@@ -30,7 +30,7 @@ socialMediaAppStore.dispatch(setLoggedIn(false));
 const Root = (store) => (
   <Provider store={store.store}>
     <Router>
-      <Nav />
+      
       <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />
