@@ -6,9 +6,12 @@ import Content from "./Content";
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { updatePosts } from '../actions/social-media-app';
+import Bio from './bio/Bio';
 
 
 class NewsFeed extends React.Component {
+
+
 
   constructor(props) {
     super(props);
@@ -20,6 +23,47 @@ class NewsFeed extends React.Component {
       newsFeedDesc: "",  //Description of the post.
       
     };
+  }
+
+ 
+
+  renderNewsFeedPage() {
+    if (this.props.store.isLoggedIn === false) {
+      return <UnauthorizedUser />;
+    } else {
+      return (
+        <>
+
+        <button onClick={() => {
+          console.log("button clicked");
+        }}>Logout</button>
+
+        <Bio />
+        <h1>News Feed</h1>    
+        <form onSubmit={this.handleSubmit}>
+        
+          <input 
+            type="text"
+            name="newsFeed"
+            id="newsFeed"
+            required
+            value={this.state.newsFeed}
+            onChange={event => this.updateItem('newsFeed', event.target.value)} placeholder="Title..." />
+            <div id="errorTitle"></div>
+            <br />
+
+          <textarea id ="newsFeedDesc" required placeholder="What's on your mind..." rows="5" cols="25" value={this.state.newsFeedDesc}
+            onChange={event => this.updateItem('newsFeedDesc', event.target.value)} />
+          <div id="errorDesc"></div>
+          <br />
+          <input type="submit" value="Post Feed" onClick={this.addPost} />
+        </form>
+
+        <Content />
+      </>
+
+      );
+    }
   }
 
   
@@ -91,41 +135,8 @@ this.setState({
 
   render() {
 
-    return (
-      <>
-
-        <button onClick={() => {
-          console.log("button clicked");
-        }}>Logout</button>
-
-        <h1>News Feed</h1>    
-        <form onSubmit={this.handleSubmit}>
+    return <>{this.renderNewsFeedPage()}</>
         
-          <input 
-            type="text"
-            name="newsFeed"
-            id="newsFeed"
-            required
-            value={this.state.newsFeed}
-            onChange={event => this.updateItem('newsFeed', event.target.value)} placeholder="Title..." />
-            <div id="errorTitle"></div>
-            <br />
-
-          <textarea id ="newsFeedDesc" required placeholder="What's on your mind..." rows="5" cols="25" value={this.state.newsFeedDesc}
-            onChange={event => this.updateItem('newsFeedDesc', event.target.value)} />
-          <div id="errorDesc"></div>
-          <br />
-          <input type="submit" value="Post Feed" onClick={this.addPost} />
-        </form>
-
-        <Content />
-
-
-
-      
-      </>
-    );
-
   }
 }
 
