@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import UnauthorizedUser from "./unauthorized-user/UnauthorizedUser";
 import SignIn from "./Sign-In/SignIn";
-import SignUp from "./Sign-Up/SignUp";
+import SignUp from "./sign-up/SignUp";
 
 class App extends React.Component {
   render() {
