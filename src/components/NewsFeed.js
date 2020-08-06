@@ -90,6 +90,7 @@ class NewsFeed extends React.Component {
         .then(data => {
           const newPost = {
             "id": uuidv4(), // Ensure a unique ID.
+            "userId": this.props.store.currentUser.id,
             "title": this.state.newsFeed,
             "body": this.state.newsFeedDesc
           };
