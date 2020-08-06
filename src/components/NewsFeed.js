@@ -77,7 +77,7 @@ class NewsFeed extends React.Component {
       
     }
 
-    else if (this.state.newsFeed.trim()!=="" || this.state.newsFeedDesc.trim()!=="")  //Checking if the fields are not empty.
+    else if (this.state.newsFeed.trim()!=="" && this.state.newsFeedDesc.trim()!=="")  //Checking if the fields are not empty.
     {
       //Fetching data from API.
       const postData = fetch('https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3')
