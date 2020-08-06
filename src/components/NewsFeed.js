@@ -30,30 +30,7 @@ class NewsFeed extends React.Component {
     // this.setState() triggers the render() method, so we can see updated state info in our presentation.
     this.setState({ [key]: value });
   }
-
-  // Add a new post title.
-  addNewsFeed = (event) => {
-   
-    // Dispatch an action; this one we set to require "newsFeed" title.
-    this.props.dispatch(addNewsFeed(this.state.newsFeed));
-
-    //clear the field for new input.
-
-    this.updateItem('newsFeed', '');
-  }
-
-  // Add a new post description.
-  addNewsFeedDesc = (event) => {
-
-    // Dispatch an action; this one we set to require some "newsFeed" description.
-    this.props.dispatch(addNewsFeed(this.state.newsFeedDesc));
-
-    //clear the field for new input.
-
-    this.updateItem('newsFeedDesc', ''); 
-  }
-
-  
+ 
   //Function for submit form.
   handleSubmit = (event) => {
     event.preventDefault(); //Prevent default load of page.
