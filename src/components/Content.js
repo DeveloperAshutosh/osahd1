@@ -12,9 +12,9 @@ class Content extends Component {
 
     };
   }
-
+  // https://www.robinwieruch.de/react-fetching-data#how-to-fetch-data-with-axios-in-react
   componentDidMount() {
-    //fetching data from the api
+    // componentDidMount() : This is like saying that the component is now born. It only runs once. In this method, we should fetch the data we need to correctly display from API. 
     fetch(
       "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3"
     )
@@ -28,7 +28,6 @@ class Content extends Component {
         this.setState({ title: title });
         this.props.dispatch(updatePosts(title));
       });
-
   }
 
   render() {
@@ -37,12 +36,8 @@ class Content extends Component {
         <button
           //here refresh button will refresh the post lists with  latest updated list.
           onClick={() => {
-            console.log("button clicked");
-
-          }}>
-
-          Refresh
-        </button>
+            
+          }}> Refresh  </button>
 
         <div className="container1">
           {this.props.someRandomName.posts.map((pic) => {
