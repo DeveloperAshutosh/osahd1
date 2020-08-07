@@ -1,5 +1,7 @@
 import React from "react";
-import { connect } from 'react-redux';
+import SignIn from "./sign-in/SignIn";
+import SignUp from "./sign-up/SignUp";
+import { connect } from "react-redux";
 
 
 class HomePage extends React.Component {
@@ -18,10 +20,9 @@ class HomePage extends React.Component {
 }
 
 function mapStateToProps(state) {
-    return {
-        state: state,
-    };
+  return {
+    state: state,
+  };
 }
-
 
 export default connect(mapStateToProps)(HomePage);
