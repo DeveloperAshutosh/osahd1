@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import { updatePosts } from ".././actions/social-media-app";
 import axios from "axios";
 
-
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       //initial states for the post before translate button is pressed.
       title: this.props.postData.title,
       body: this.props.postData.body,
@@ -19,65 +18,61 @@ class Post extends Component {
   // TRANSLATE METHOD STARTS
   translate() {
     /* translate method():
-    * will take input text for body and translate the text by calling google api and then setting the state
-    */
+     * will take input text for body and translate the text by calling google api and then setting the state
+     */
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.props.postData.body}`
+        `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.state.body}`
       )
       .then((response) => {
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text="";
+        let text = "";
         for (let translation of translatedArray) {
-          text=text+translation[0];
+          text = text + translation[0];
         }
 
-        this.setState({ body: text });//setting the state of body after the translation.
+        this.setState({ body: text }); //setting the state of body after the translation.
       });
     // will take input text for title and translate the text by calling google api and then setting the state
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.props.postData.title}`
+        `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.state.title}`
       )
       .then((response) => {
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text="";
+        let text = "";
         for (let translation of translatedArray) {
-          text=text+translation[0];
+          text = text + translation[0];
         }
 
-        this.setState({ title: text });//setting the state of title after the translation.
+        this.setState({ title: text }); //setting the state of title after the translation.
       });
     //button function as toggle between the translation from enflish to french and vice versa.
     this.setState({
-      source: this.state.source==="en"? "fr":"en",
-      target: this.state.target==="en"? "fr":"en",
+      source: this.state.source === "en" ? "fr" : "en",
+      target: this.state.target === "en" ? "fr" : "en",
     });
   }
   //TRANSLATE METHOD ENDS
 
   render() {
-    // representing the post title and post body here in post which is fetched in content.js 
+    // representing the post title and post body here in post which is fetched in content.js
     return (
       <>
-        {/* 
         <h3>{this.state.title}</h3>
-        <p>{this.state.body}</p> */}
-        <h3>{this.props.postData.title}</h3>
-        <p>{this.props.postData.body}</p>
+        <p>{this.state.body}</p>
 
         <button
           //delete button will delete the post after clicking on it..at the same time the ap
           onClick={() => {
-
             //delete the some random post from the list of posts
-            let updatedPostList=this.props.someRandomName.posts.filter(
+            let updatedPostList = this.props.someRandomName.posts.filter(
               (post) => {
-                return post.id!==this.props.postData.id;
+                return post.id !== this.props.postData.id;
               }
             );
             // sending the dispatch of updatedPostList to the store.
