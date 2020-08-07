@@ -32,6 +32,7 @@ class SearchPage extends React.Component {
     } else {
       return (
         <>
+          <Nav />
           <h1>Search</h1>
           <SearchBar />
           {this.renderUsers()}
