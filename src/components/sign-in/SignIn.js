@@ -7,7 +7,7 @@ import {
   setLoggedIn,
   updateUsers,
 } from "../../actions/social-media-app"; // actions required to dispatch redux
-import styles from "./Signin.css";
+import styles from "./SignIn.css";
 
 const initialState = {
   email: "",
@@ -90,12 +90,14 @@ class SignIn extends React.Component {
             this.props.dispatch(updateUsers(allUsers));
             // get the Newsfeed links and redirect the user
             // redirect the user to newsfeed
-            this.props.onNavigate.push("/Newsfeed");
-            
+            try {
+              this.props.onNavigate.push("/Newsfeed");
+            } catch (error) {
+              this.props.history.push("/Newsfeed");
+            }
           }
         }
       }); // end of async call
-      
   }; // end of handle submit function
   render() {
     return (
@@ -106,21 +108,25 @@ class SignIn extends React.Component {
         <h3>Welcome</h3>
         <p className="#">
           {" "}
-            Share...Express...Connect...Your World Closer Together...{" "}
+          Share...Express...Connect...Your World Closer Together...{" "}
         </p>
-        <section class="buttonInput">
-          <Link className="signup" to="./sign-up/SignUp">SIGN UP</Link>
+        <section className="buttonInput">
+          <Link className="signup" to="./sign-up/SignUp">
+            SIGN UP
+          </Link>
           <form onSubmit={this.handleSubmit}>
             <div id="warning" onSubmit={this.handleSubmit}></div>
-            <div class="blueSolid">
-              <input class="input1"
+            <div className="blueSolid">
+              <input
+                class="input1"
                 type="email"
                 id="email"
                 placeholder="Enter Email:"
                 value={this.state.email}
                 onChange={this.handleChange}
               />
-              <input class="input2"
+              <input
+                className="input2"
                 type="password"
                 id="password"
                 placeholder="Enter Password:"
@@ -130,7 +136,7 @@ class SignIn extends React.Component {
             </div>
             <button type="submit" onSubmit={this.handleSubmit}>
               {" "}
-            SIGN IN{" "}
+              SIGN IN{" "}
             </button>
           </form>
         </section>

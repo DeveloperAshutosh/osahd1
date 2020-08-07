@@ -3,11 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
 import App from "./components/App";
-
-
 import NewsFeed from "./components/NewsFeed";
 import SearchPage from "./components/search-page/SearchPage";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/homepage/HomePage";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";
@@ -32,14 +30,16 @@ socialMediaAppStore.dispatch(setLoggedIn(false));
 const Root = (store) => (
   <Provider store={store.store}>
     <Router>
-      <Nav />
       <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />
       <Route path="/HomePage" component={HomePage} />
-      <Route path = "/sign-up/SignUp" component = {SignUp}/>
-      <Route path = "/Sign-In/SignIn" component = {SignIn}/>
-      <Route path = "/unauthorized-user/UnauthorizedUser" component = {UnauthorizedUser}/>
+      <Route path="/sign-up/SignUp" component={SignUp} />
+      <Route path="/Sign-In/SignIn" component={SignIn} />
+      <Route
+        path="/unauthorized-user/UnauthorizedUser"
+        component={UnauthorizedUser}
+      />
     </Router>
   </Provider>
 );
