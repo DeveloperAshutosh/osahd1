@@ -46,7 +46,7 @@ class Content extends Component {
         
         <div className="container1">
           {this.props.someRandomName.posts.map((pic) => {
-            return <Post postData={pic} />;
+            return <Post key={pic.id} postData={pic} />;
           })}
         </div>
       </>
