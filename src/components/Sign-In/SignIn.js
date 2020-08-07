@@ -98,35 +98,40 @@ class SignIn extends React.Component {
   render() {
     return (
       <div>
-       <Link to="./sign-up/SignUp">   Sign Up</Link>
-        <form onSubmit={this.handleSubmit}>
-          <h3>Sign In</h3>
-          <label htmlFor="email">Enter email</label>
-          <div id="warning" onSubmit={this.handleSubmit}></div>
-          <input
-            type="email"
-            id="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Enter password</label>
-          <input
-            type="password"
-            id="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <button type="submit" onSubmit={this.handleSubmit}>
-            {" "}
-            Sign In{" "}
-          </button>
-          
-          <p className="logo"></p>
-          <p className="#">
-            {" "}
-            Share... Express...Connect...Your world closer together{" "}
-          </p>
-        </form>
+        <div class="logo">
+          <img src="images/Logo.png" alt="logo" />
+        </div>
+        <h3>Welcome</h3>
+        <p className="#">
+          {" "}
+            Share...Express...Connect...Your World Closer Together...{" "}
+        </p>
+        <section class="buttonInput">
+          <Link class="signup" to="./sign-up/SignUp">SIGN UP</Link>
+          <form onSubmit={this.handleSubmit}>
+            <div id="warning" onSubmit={this.handleSubmit}></div>
+            <div class="blueSolid">
+              <input class="input1"
+                type="email"
+                id="email"
+                placeholder="Enter Email:"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <input class="input2"
+                type="password"
+                id="password"
+                placeholder="Enter Password:"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
+            <button type="submit" onSubmit={this.handleSubmit}>
+              {" "}
+            SIGN IN{" "}
+            </button>
+          </form>
+        </section>
       </div>
     );
   }
