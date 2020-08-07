@@ -3,46 +3,98 @@ import { connect } from "react-redux";
 import { updatePosts } from ".././actions/social-media-app";
 import axios from "axios";
 
+
 class Post extends Component {
-
-
   constructor(props) {
     super(props);
+    this.state={
+      //initial states for the post before translate button is pressed.
+      title: this.props.postData.title,
+      body: this.props.postData.body,
+      source: "en", //source language is english
+      target: "fr", //target language is french
+    };
   }
 
+  // TRANSLATE METHOD STARTS
+  translate() {
+    /* translate method():
+    * will take input text for body and translate the text by calling google api and then setting the state
+    */
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.props.postData.body}`
+      )
+      .then((response) => {
+        return response.data[0];
+      })
+      .then((translatedArray) => {
+        let text="";
+        for (let translation of translatedArray) {
+          text=text+translation[0];
+        }
+
+        this.setState({ body: text });//setting the state of body after the translation.
+      });
+    // will take input text for title and translate the text by calling google api and then setting the state
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.props.postData.title}`
+      )
+      .then((response) => {
+        return response.data[0];
+      })
+      .then((translatedArray) => {
+        let text="";
+        for (let translation of translatedArray) {
+          text=text+translation[0];
+        }
+
+        this.setState({ title: text });//setting the state of title after the translation.
+      });
+    //button function as toggle between the translation from enflish to french and vice versa.
+    this.setState({
+      source: this.state.source==="en"? "fr":"en",
+      target: this.state.target==="en"? "fr":"en",
+    });
+  }
+  //TRANSLATE METHOD ENDS
+
   render() {
+    // representing the post title and post body here in post which is fetched in content.js 
     return (
       <>
+        {/* 
+        <h3>{this.state.title}</h3>
+        <p>{this.state.body}</p> */}
         <h3>{this.props.postData.title}</h3>
         <p>{this.props.postData.body}</p>
 
         <button
+          //delete button will delete the post after clicking on it..at the same time the ap
           onClick={() => {
-            console.log("button clicked");
 
-            let updatedPostList = this.props.someRandomName.posts.filter(
+            //delete the some random post from the list of posts
+            let updatedPostList=this.props.someRandomName.posts.filter(
               (post) => {
-                return post.id !== this.props.postData.id;
+                return post.id!==this.props.postData.id;
               }
             );
-
+            // sending the dispatch of updatedPostList to the store.
             this.props.dispatch(updatePosts(updatedPostList));
-              // use a put request to send updated list to our json stroage api after deleting the post.
 
-    axios
-    .put(
-      "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3",
-      { "posts":updatedPostList }
-    )
+            // use a put request to send updated list to our json stroage api after deleting the post.
+            axios.put(
+              "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3",
+              { posts: updatedPostList }
+            );
           }}
         >
-          
           Delete
         </button>
-
         <button
           onClick={() => {
-            console.log("button clicked");
+            this.translate();
           }}
         >
           Translate Button
@@ -51,6 +103,7 @@ class Post extends Component {
     );
   }
 }
+
 function mapStateToProps(state) {
   return {
     someRandomName: state,
@@ -58,23 +111,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Post);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
