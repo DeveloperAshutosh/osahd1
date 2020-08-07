@@ -15,6 +15,23 @@ class Post extends Component {
     };
   }
 
+  currentLoggedInUser() {
+    if (this.props.store.setCurrentUser===false) {
+      this.translate();
+      return(
+      <Post />)
+    }
+    else {
+      if (this.props.store.setCurrentUser===true) {
+        this.translate();
+        this.delete();
+          return(
+            <Post />
+          )
+      }
+    }
+  }
+
   // TRANSLATE METHOD STARTS
   translate() {
     /* translate method():
@@ -61,25 +78,12 @@ class Post extends Component {
       target: this.state.target==="en"? "fr":"en",
     });
   }
+
   //TRANSLATE METHOD ENDS
-  CurrentLoggedInUser() {
-    if (this.props.store.setCurrentUser===false) {
-      this.translate();
-      return(
-      <Post />)
-    }
-    else {
-      if (this.props.store.setCurrentUser===true) {
-        this.translate();
-        this.Delete();
-          return(
-            <Post />
-          )
-      }
-    }
-  }
+
+  
   // Delete Method
-  Delete() {
+  delete() {
     let updatedPostList=this.props.someRandomName.posts.filter(
       (post) => {
         return post.id!==this.props.postData.id;
@@ -95,7 +99,6 @@ class Post extends Component {
     );
   }
 
-
   render() {
     // representing the post title and post body here in post which is fetched in content.js
     return (
@@ -106,7 +109,7 @@ class Post extends Component {
         <button
           //delete button will delete the post after clicking on it..at the same time the ap
           onClick={() => {
-            this.Delete();
+            this.delete();
           }}>
           Delete</button>
         <button
