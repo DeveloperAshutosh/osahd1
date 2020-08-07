@@ -3,11 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
 import App from "./components/App";
-
-import Nav from "./components/Nav.js";
 import NewsFeed from "./components/NewsFeed";
 import SearchPage from "./components/search-page/SearchPage";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/homepage/HomePage";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";

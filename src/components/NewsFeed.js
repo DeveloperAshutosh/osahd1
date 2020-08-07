@@ -17,7 +17,7 @@ class NewsFeed extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state={
 
       // Keep track of our new post's value.
       newsFeed: "",  //Title of the post.
@@ -27,12 +27,12 @@ class NewsFeed extends React.Component {
   }
 
   renderNewsFeedPage() {
-    if (this.props.store.isLoggedIn === false) {
+    if (this.props.store.isLoggedIn===false) {
       return <UnauthorizedUser />;
     } else {
       return (
         <>
-<Nav />
+          <Nav />
           <button onClick={() => {
             console.log("button clicked");
           }}>Logout</button>
@@ -75,34 +75,34 @@ class NewsFeed extends React.Component {
   }
 
   //Function for submit form.
-  handleSubmit = (event) => {
+  handleSubmit=(event) => {
     event.preventDefault(); //Prevent default load of page.
   }
 
   //Function on click of submit button("Post Feed").
-  addPost = (event) => {
+  addPost=(event) => {
     event.preventDefault(); // Stop the page from reloading.
 
     //Conditions will check if Title and Description fields are empty, it will show an error.
 
-    if (this.state.newsFeed.trim() === "") {
-      document.querySelector("#errorTitle").innerHTML = "Title required."; //Error message for Title.
+    if (this.state.newsFeed.trim()==="") {
+      document.querySelector("#errorTitle").innerHTML="Title required."; //Error message for Title.
 
     }
 
-    else if (this.state.newsFeedDesc.trim() === "") {
-      document.querySelector("#errorDesc").innerHTML = "Description required."; //Error message for Title.
+    else if (this.state.newsFeedDesc.trim()==="") {
+      document.querySelector("#errorDesc").innerHTML="Description required."; //Error message for Title.
 
     }
 
-    else if (this.state.newsFeed.trim() !== "" && this.state.newsFeedDesc.trim() !== "")  //Checking if the fields are not empty.
+    else if (this.state.newsFeed.trim()!==""&&this.state.newsFeedDesc.trim()!=="")  //Checking if the fields are not empty.
     {
       //Fetching data from API.
 
-      let title = this.state.newsFeed;
-      let body = this.state.newsFeedDesc;
+      let title=this.state.newsFeed;
+      let body=this.state.newsFeedDesc;
 
-      const postData = fetch('https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3')
+      const postData=fetch('https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3')
         .then(posts => {
           return posts.json();
         }).then(data => {
@@ -110,38 +110,28 @@ class NewsFeed extends React.Component {
         })
         //Assign values to data of posts.
         .then(data => {
-          const newPost = {
+          const newPost={
             "id": uuid(), // Ensure a unique ID.
             "userId": this.props.store.currentUser.id,
             "title": title,
             "body": body
           };
-
-          const pushData = [newPost, ...data];;
-          
-
+          const pushData=[newPost, ...data];;
           //Using put method to add the new post data to API.
           axios.put('https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3', { "posts": pushData })
-
           this.props.dispatch(updatePosts(pushData)); //dispatch the updated posts data
 
         })
     }
-      this.setState({
-        newsFeed: "",
-        newsFeedDesc: ""
-      });
-    
-
+    this.setState({
+      newsFeed: "",
+      newsFeedDesc: ""
+    });
   }
-
   render() {
-
     return <>{this.renderNewsFeedPage()}</>
-
   }
 }
-
 //mapStateToProps function receives the store state 
 
 function mapStateToProps(state) {
