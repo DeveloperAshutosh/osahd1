@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePosts } from ".././actions/social-media-app";
+import { updatePosts, setCurrentUser } from ".././actions/social-media-app";
 import axios from "axios";
 
 class Post extends Component {
@@ -62,6 +62,39 @@ class Post extends Component {
     });
   }
   //TRANSLATE METHOD ENDS
+  CurrentLoggedInUser() {
+    if (this.props.store.setCurrentUser===false) {
+      this.translate();
+      return(
+      <Post />)
+    }
+    else {
+      if (this.props.store.setCurrentUser===true) {
+        this.translate();
+        this.Delete();
+          return(
+            <Post />
+          )
+      }
+    }
+  }
+  // Delete Method
+  Delete() {
+    let updatedPostList=this.props.someRandomName.posts.filter(
+      (post) => {
+        return post.id!==this.props.postData.id;
+      }
+    );
+    // sending the dispatch of updatedPostList to the store.
+    this.props.dispatch(updatePosts(updatedPostList));
+
+    // use a put request to send updated list to our json stroage api after deleting the post.
+    axios.put(
+      "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3",
+      { posts: updatedPostList }
+    );
+  }
+
 
   render() {
     // representing the post title and post body here in post which is fetched in content.js
@@ -73,24 +106,9 @@ class Post extends Component {
         <button
           //delete button will delete the post after clicking on it..at the same time the ap
           onClick={() => {
-            //delete the some random post from the list of posts
-            let updatedPostList=this.props.someRandomName.posts.filter(
-              (post) => {
-                return post.id!==this.props.postData.id;
-              }
-            );
-            // sending the dispatch of updatedPostList to the store.
-            this.props.dispatch(updatePosts(updatedPostList));
-
-            // use a put request to send updated list to our json stroage api after deleting the post.
-            axios.put(
-              "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3",
-              { posts: updatedPostList }
-            );
-          }}
-        >
-          Delete
-        </button>
+            this.Delete();
+          }}>
+          Delete</button>
         <button
           onClick={() => {
             this.translate();
