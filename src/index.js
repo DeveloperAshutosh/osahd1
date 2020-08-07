@@ -10,6 +10,10 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";
 import { setLoggedIn } from "./actions/social-media-app";
+import SignUp from "./components/sign-up/SignUp";
+import SignIn from "./components/sign-in/SignIn";
+import UnauthorizedUser from "./components/unauthorized-user/UnauthorizedUser";
+import Nav from "./components/Nav";
 
 // create a new redux store
 const socialMediaAppStore = createStore(socialMediaAppReducer);
@@ -26,11 +30,16 @@ socialMediaAppStore.dispatch(setLoggedIn(false));
 const Root = (store) => (
   <Provider store={store.store}>
     <Router>
-     
       <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />
       <Route path="/HomePage" component={HomePage} />
+      <Route path="/sign-up/SignUp" component={SignUp} />
+      <Route path="/Sign-In/SignIn" component={SignIn} />
+      <Route
+        path="/unauthorized-user/UnauthorizedUser"
+        component={UnauthorizedUser}
+      />
     </Router>
   </Provider>
 );
