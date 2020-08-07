@@ -7,7 +7,7 @@ import {
   setLoggedIn,
   updateUsers,
 } from "../../actions/social-media-app"; // actions required to dispatch redux
-import "./Signin.css";
+import styles from "./Signin.css";
 
 const initialState = {
   email: "",
@@ -89,16 +89,18 @@ class SignIn extends React.Component {
             // store the existing users in redux
             this.props.dispatch(updateUsers(allUsers));
             // get the Newsfeed links and redirect the user
-            let navLinks = document.querySelectorAll("a");
-            navLinks[1].click(); // the second link should be the newsfeed
+            // redirect the user to newsfeed
+            this.props.onNavigate.push("/Newsfeed");
+            
           }
         }
       }); // end of async call
+      
   }; // end of handle submit function
   render() {
     return (
       <div>
-        <div class="logo">
+        <div className="logo">
           <img src="images/Logo.png" alt="logo" />
         </div>
         <h3>Welcome</h3>
@@ -107,7 +109,7 @@ class SignIn extends React.Component {
             Share...Express...Connect...Your World Closer Together...{" "}
         </p>
         <section class="buttonInput">
-          <Link class="signup" to="./sign-up/SignUp">SIGN UP</Link>
+          <Link className="signup" to="./sign-up/SignUp">SIGN UP</Link>
           <form onSubmit={this.handleSubmit}>
             <div id="warning" onSubmit={this.handleSubmit}></div>
             <div class="blueSolid">

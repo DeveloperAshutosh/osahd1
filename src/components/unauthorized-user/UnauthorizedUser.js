@@ -11,7 +11,7 @@ class UnauthorizedUser extends React.Component {
       <>
       <p className = "logo"></p>
         <p>Posts are only visible to logged in users.</p>
-        <a href="#">Sign in or Sign Up </a>
+        
         <nav>
         <ul>
           <li>
