@@ -6,7 +6,7 @@ import axios from "axios";
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state={
       //initial states for the post before translate button is pressed.
       title: this.props.postData.title,
       body: this.props.postData.body,
@@ -21,16 +21,18 @@ class Post extends Component {
      * will take input text for body and translate the text by calling google api and then setting the state
      */
     axios
+      //link: https://cors-anywhere.herokuapp.com/
       .get(
         `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.state.body}`
       )
       .then((response) => {
+        //returning the response in the first array.
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text = "";
+        let text="";
         for (let translation of translatedArray) {
-          text = text + translation[0];
+          text=text+translation[0];
         }
 
         this.setState({ body: text }); //setting the state of body after the translation.
@@ -41,20 +43,22 @@ class Post extends Component {
         `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.state.title}`
       )
       .then((response) => {
+        //returning the response in the first array.
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text = "";
+        let text="";
         for (let translation of translatedArray) {
-          text = text + translation[0];
+          text=text+translation[0];
         }
 
         this.setState({ title: text }); //setting the state of title after the translation.
       });
     //button function as toggle between the translation from enflish to french and vice versa.
     this.setState({
-      source: this.state.source === "en" ? "fr" : "en",
-      target: this.state.target === "en" ? "fr" : "en",
+      //The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy.
+      source: this.state.source==="en"? "fr":"en",
+      target: this.state.target==="en"? "fr":"en",
     });
   }
   //TRANSLATE METHOD ENDS
@@ -70,9 +74,9 @@ class Post extends Component {
           //delete button will delete the post after clicking on it..at the same time the ap
           onClick={() => {
             //delete the some random post from the list of posts
-            let updatedPostList = this.props.someRandomName.posts.filter(
+            let updatedPostList=this.props.someRandomName.posts.filter(
               (post) => {
-                return post.id !== this.props.postData.id;
+                return post.id!==this.props.postData.id;
               }
             );
             // sending the dispatch of updatedPostList to the store.
@@ -104,5 +108,5 @@ function mapStateToProps(state) {
     someRandomName: state,
   };
 }
-
+//React Redux provides a connect function for you to connect your component to the store.
 export default connect(mapStateToProps)(Post);
