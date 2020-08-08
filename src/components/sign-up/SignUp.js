@@ -5,6 +5,7 @@ import { updateUsers } from "../../actions/social-media-app";
 import { v4 as uuid } from "uuid";
 import "./Signup.css";
 import { Link } from "react-router-dom";
+import Logo from "../../images/Logo.png";
 
 const initialState = {
   name: "",
@@ -40,16 +41,16 @@ class SignUp extends React.Component {
       [event.target.id]: event.target.value,
     });
   };
-  
+
   handleSubmit = (event) => {
-    
+
     event.preventDefault();
     const user = {
       id: uuid(),
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      activities: [] ,
+      activities: [],
       gender: this.state.gender,
       age: this.state.age,
       photoURL: this.state.photoURL
@@ -74,7 +75,7 @@ class SignUp extends React.Component {
       this.state.gender.trim() === ""
     ) {
 
-      if (this.state.email.trim() === ""){
+      if (this.state.email.trim() === "") {
         document.querySelector("#emailWarning").innerHTML = "emailcant be blank";
       }
 
@@ -85,7 +86,7 @@ class SignUp extends React.Component {
         document.querySelector("#nameWarning").innerHTML = "";
       }
 
-      if (this.state.email.trim() === ""){
+      if (this.state.email.trim() === "") {
         document.querySelector("#emailWarning").innerHTML = "Email cannot be blank";
       }
       else {
@@ -119,24 +120,32 @@ class SignUp extends React.Component {
       )
 
       .then((response) => {
-        
+
         this.props.dispatch(updateUsers(listOfUsers));
       });
   };
-  navigateToSignIn () {
+  navigateToSignIn() {
     console.log("whts up");
     try {
       this.props.onNavigate.push("/sign-in/SignIn");
-      
+
     } catch (error) {
       this.props.history.push("/sign-in/SignIn");
     }
-    
+
   }
 
   render() {
     return (
       <div>
+        <div className="logoSignUp">
+          <img src={Logo} alt="logo" />
+        </div>
+        <h3 className="headWelcome">Welcome</h3>
+        <p class="statementSignUp">
+          {" "}
+            Share...Express...Connect...Your world closer together...{" "}
+        </p>
         <form onSubmit={this.handleSubmit}>
           {this.getUsers()}
           <div id="nameWarning"></div>
@@ -175,8 +184,6 @@ class SignUp extends React.Component {
             onChange={this.handleChange}
           />
 
-          
-
           <div id="ageWarning"></div>
           <label htmlFor="age">Enter Your Age: </label>
 
@@ -186,7 +193,6 @@ class SignUp extends React.Component {
             value={this.state.age}
             onChange={this.handleChange}
           />
-
 
           <div id="genderWarning"></div>
           <label htmlFor="gender">Enter Your Gender: </label>
@@ -205,24 +211,15 @@ class SignUp extends React.Component {
             SIGN UP
           </button>
           <div id="successful" ></div>
-
         </form>
-        <button onClick =  {()=>{this.navigateToSignIn()}}> SIGN IN </button>
-            <p >
-
-            {" "}
-              Share...Express...Connect...Your world closer together...{" "}
-            </p>
-          
+        <button onClick={() => { this.navigateToSignIn() }}> SIGN IN </button>
       </div>
     );
   }
 }
-
 function mapStateToProps(state) {
   return {
     store: state,
   };
 }
-
 export default connect(mapStateToProps)(SignUp);

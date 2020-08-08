@@ -8,6 +8,7 @@ import {
   updateUsers,
 } from "../../actions/social-media-app"; // actions required to dispatch redux
 import "./SignIn.css";
+import Logo from "../../images/Logo.png";
 
 const initialState = {
   email: "",
@@ -112,51 +113,47 @@ class SignIn extends React.Component {
   render() {
     return (
       <div>
-        <div className="logo">
-          <img src="images/Logo.png" alt="logo" />
+        <div className="logoSignIn">
+          <img src={Logo} alt="OSAHD logo" />
         </div>
         <h3>Welcome</h3>
-        <p className="#">
+        <p className="statementSignIn">
           {" "}
           Share...Express...Connect...Your World Closer Together...{" "}
         </p>
-
-        <section class="buttonInput">
-          <button
-            onClick={() => {
-              this.navigateToSignUp();
-            }}
-          >
-            SIGN UP{" "}
-          </button>
-          <form onSubmit={this.handleSubmit}>
-            <div id="warning" onSubmit={this.handleSubmit}></div>
-            <div class="blueSolid">
-
-              <input
-                class="input1"
-                type="email"
-                id="email"
-                placeholder="Enter Email:"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-              <input
-
-                className="input2"
-                type="password"
-                id="password"
-                placeholder="Enter Password:"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-            </div>
-            <button type="submit" onSubmit={this.handleSubmit}>
-              {" "}
+        <button className="signUpButton"
+          onClick={() => {
+            this.navigateToSignUp();
+          }}
+        >
+          SIGN UP{" "}
+        </button>
+        <form onSubmit={this.handleSubmit}>
+          <div id="warning" onSubmit={this.handleSubmit}></div>
+          <div className="blueSolid">
+            <input
+              className="input1"
+              type="email"
+              id="email"
+              placeholder="Enter Email:"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <input
+              className="input2"
+              type="password"
+              id="password"
+              placeholder="Enter Password:"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <button className="signInButton" type="submit" onSubmit={this.handleSubmit}>
+            {" "}
               SIGN IN{" "}
-            </button>
-          </form>
-        </section>
+          </button>
+        </form>
+        <div className="blueOpacity"></div>
       </div>
     );
   }
