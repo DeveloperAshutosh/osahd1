@@ -32,13 +32,13 @@ socialMediaAppStore.dispatch(setLoggedIn(false));
 const Root = (store) => (
   <Provider store={store.store}>
     <Router>
-      <Nav />
+      
       <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />
       <Route path="/HomePage" component={HomePage} />
       <Route path = "/sign-up/SignUp" component = {SignUp}/>
-      <Route path = "/Sign-In/SignIn" component = {SignIn}/>
+      <Route path = "/sign-in/SignIn" component = {SignIn}/>
       <Route path = "/unauthorized-user/UnauthorizedUser" component = {UnauthorizedUser}/>
     </Router>
   </Provider>

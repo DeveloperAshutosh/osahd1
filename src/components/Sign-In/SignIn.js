@@ -7,7 +7,7 @@ import {
   setLoggedIn,
   updateUsers,
 } from "../../actions/social-media-app"; // actions required to dispatch redux
-import styles from "./Signin.css";
+
 
 const initialState = {
   email: "",
@@ -97,7 +97,18 @@ class SignIn extends React.Component {
       }); // end of async call
       
   }; // end of handle submit function
-  render() {
+  navigateToSignUp () {
+    console.log("whts up");
+    try {
+      this.props.onNavigate.push("/sign-up/SignUp");
+      
+    } catch (error) {
+      this.props.history.push("/sign-up/SignUp");
+    }
+  }
+  
+  render() 
+  {
     return (
       <div>
         <div className="logo">
@@ -109,7 +120,7 @@ class SignIn extends React.Component {
             Share...Express...Connect...Your World Closer Together...{" "}
         </p>
         <section class="buttonInput">
-          <Link className="signup" to="./sign-up/SignUp">SIGN UP</Link>
+         <button onClick = {()=> {this.navigateToSignUp()}}>SIGN UP </button>
           <form onSubmit={this.handleSubmit}>
             <div id="warning" onSubmit={this.handleSubmit}></div>
             <div class="blueSolid">
@@ -134,6 +145,7 @@ class SignIn extends React.Component {
             </button>
           </form>
         </section>
+        
       </div>
     );
   }

@@ -11,6 +11,7 @@ class Nav extends React.Component {
     this.props.dispatch(setLoggedIn(false));
     this.props.dispatch(setCurrentUser(null));
   }
+  
 
   render() {
     return (
@@ -21,7 +22,7 @@ class Nav extends React.Component {
             <Link to="/NewsFeed">News Feed</Link>
             <Link to="/Search">Search Page</Link>
           </li>
-          <button onClick={() => this.logout()}> Log Out</button>
+          <button onClick={() => this.logout() }  > <Link to="/SignIn" > </Link>  Log Out</button> 
         </ul>
       </nav>
     );

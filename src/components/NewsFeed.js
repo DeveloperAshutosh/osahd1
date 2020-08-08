@@ -3,6 +3,7 @@ import "./App.css";
 import {connect} from 'react-redux';
 import addNewsFeed from '../actions/NewsFeedActions';
 import Content from "./Content";
+import Nav from "./Nav";
 
 
 class NewsFeed extends React.Component {
@@ -74,6 +75,7 @@ class NewsFeed extends React.Component {
 
         <h1>News Feed</h1> 
         <form>
+          <Nav />
                 <input
                 type="text"
                 name="newsFeed"
