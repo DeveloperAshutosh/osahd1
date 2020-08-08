@@ -13,6 +13,7 @@ import { setLoggedIn } from "./actions/social-media-app";
 import SignUp from "./components/sign-up/SignUp";
 import SignIn from "./components/sign-in/SignIn";
 import UnauthorizedUser from "./components/unauthorized-user/UnauthorizedUser";
+import Nav from "./components/Nav";
 
 // create a new redux store
 const socialMediaAppStore = createStore(socialMediaAppReducer);

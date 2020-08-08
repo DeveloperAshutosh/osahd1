@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux"; // this will enable connecting the redux store
 import {
   setCurrentUser,
@@ -87,46 +88,66 @@ class SignIn extends React.Component {
             // store the existing users in redux
             this.props.dispatch(updateUsers(allUsers));
             // get the Newsfeed links and redirect the user
+            // redirect the user to newsfeed
             this.props.onNavigate.push("/Newsfeed");
           }
         }
       }); // end of async call
   }; // end of handle submit function
+  navigateToSignUp() {
+    console.log("whts up");
+    try {
+      this.props.onNavigate.push("/sign-up/SignUp");
+    } catch (error) {
+      this.props.history.push("/sign-up/SignUp");
+    }
+  }
+
   render() {
     return (
       <div>
-        <button>Sign In</button>
-        <form onSubmit={this.handleSubmit}>
-          <h3>Sign In</h3>
-          <label htmlFor="email">Enter email</label>
-          <div id="warning" onSubmit={this.handleSubmit}></div>
-          <input
-            type="email"
-            id="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Enter password</label>
-          <input
-            type="password"
-            id="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <button type="submit" onSubmit={this.handleSubmit}>
-            {" "}
-            Sign In{" "}
+        <div className="logo">
+          <img src="images/Logo.png" alt="logo" />
+        </div>
+        <h3>Welcome</h3>
+        <p className="#">
+          {" "}
+          Share...Express...Connect...Your World Closer Together...{" "}
+        </p>
+        <section class="buttonInput">
+          <button
+            onClick={() => {
+              this.navigateToSignUp();
+            }}
+          >
+            SIGN UP{" "}
           </button>
-          <button type="submit" onSubmit={this.handleSubmit}>
-            {" "}
-            Sign Up
-          </button>
-          <p className="logo"></p>
-          <p className="#">
-            {" "}
-            Share... Express...Connect...Your world closer together{" "}
-          </p>
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            <div id="warning" onSubmit={this.handleSubmit}></div>
+            <div class="blueSolid">
+              <input
+                class="input1"
+                type="email"
+                id="email"
+                placeholder="Enter Email:"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <input
+                class="input2"
+                type="password"
+                id="password"
+                placeholder="Enter Password:"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
+            <button type="submit" onSubmit={this.handleSubmit}>
+              {" "}
+              SIGN IN{" "}
+            </button>
+          </form>
+        </section>
       </div>
     );
   }

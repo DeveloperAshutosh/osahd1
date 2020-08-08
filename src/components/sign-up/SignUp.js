@@ -3,6 +3,8 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { updateUsers } from "../../actions/social-media-app";
 import { v4 as uuid } from "uuid";
+import "./Signup.css";
+import { Link } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -38,15 +40,16 @@ class SignUp extends React.Component {
       [event.target.id]: event.target.value,
     });
   };
-
+  
   handleSubmit = (event) => {
+    
     event.preventDefault();
     const user = {
       id: uuid(),
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      activities: this.state.activities,
+      activities: [] ,
       gender: this.state.gender,
       age: this.state.age,
       photoURL: this.state.photoURL
@@ -62,7 +65,7 @@ class SignUp extends React.Component {
     }
     if (userExists) {
       document.querySelector("#emailWarning").innerHTML =
-        "This email already exists";
+        "This email already exists.Please pick another email";
     } else if (
       this.state.email.trim() === "" ||
       this.state.name.trim() === "" ||
@@ -70,6 +73,9 @@ class SignUp extends React.Component {
       this.state.password !== this.state.passwordConfirmation ||
       this.state.gender.trim() === ""
     ) {
+      if (this.state.email.trim() === ""){
+        document.querySelector("#emailWarning").innerHTML = "emailcant be blank";
+      }
       if (this.state.name.trim() === "") {
         document.querySelector("#nameWarning").innerHTML =
           "Name can not be blank";
@@ -90,8 +96,10 @@ class SignUp extends React.Component {
       }
     } else {
       document.querySelector("#emailWarning").innerHTML = "";
-
+      document.querySelector("#successful").innerHTML = "Account created successfully . Please Sign In to continue ";
+      
       listOfUsers.push(user);
+      this.setState(initialState);
     }
 
     axios
@@ -101,59 +109,75 @@ class SignUp extends React.Component {
       )
 
       .then((response) => {
-        this.setState(initialState);
+        
         this.props.dispatch(updateUsers(listOfUsers));
       });
   };
+  navigateToSignIn () {
+    console.log("whts up");
+    try {
+      this.props.onNavigate.push("/sign-in/SignIn");
+      
+    } catch (error) {
+      this.props.history.push("/sign-in/SignIn");
+    }
+    
+  }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           {this.getUsers()}
-          <h3>Sign Up</h3>
           <div id="nameWarning"></div>
-          <label htmlFor="name">Enter Full name</label>
-
+          <label htmlFor="name">Enter Full Name: </label>
           <input
             type="text"
             id="name"
             value={this.state.name}
             onChange={this.handleChange}
           />
+
           <div id="emailWarning"></div>
-          <label htmlFor="email">Enter email</label>
+          <label htmlFor="email">Enter Email: </label>
           <input
             type="email"
             id="email"
             value={this.state.email}
             onChange={this.handleChange}
           />
+
           <div id="passwordWarning"></div>
-          <label htmlFor="password">Enter password</label>
+          <label htmlFor="password">Enter Password: </label>
           <input
             type="password"
             id="password"
             value={this.state.password}
             onChange={this.handleChange}
           />
+
           <div id="passwordConfirmationWarning"></div>
-          <label htmlFor="passwordConfirmation">Confirm Password</label>
+          <label htmlFor="passwordConfirmation">Confirm Password: </label>
           <input
             type="password"
             id="passwordConfirmation"
             value={this.state.passwordConfirmation}
             onChange={this.handleChange}
           />
-          <label htmlFor="activities">Enter your Interests </label>
+
+          
+
+          <div id="ageWarning"></div>
+          <label htmlFor="age">Enter Your Age: </label>
           <input
-            type="text"
-            id="activities"
-            value={this.state.activities}
+            type="date"
+            id="age"
+            value={this.state.age}
             onChange={this.handleChange}
           />
+
           <div id="genderWarning"></div>
-          <label htmlFor="gender">Enter your Gender </label>
+          <label htmlFor="gender">Enter Your Gender: </label>
           <select
             id="gender"
             value={this.state.gender}
@@ -163,23 +187,22 @@ class SignUp extends React.Component {
             <option>Male</option>
             <option>Female</option>
           </select>
-          <label htmlFor="age">Enter your Age </label>
-          <input
-            type="date"
-            id="age"
-            value={this.state.age}
-            onChange={this.handleChange}
-          />
+          <br />
           <button type="submit" onSubmit={this.handleSubmit}>
             {" "}
-            Sign Up
+            SIGN UP
           </button>
-          <p className="logo"></p>
-          <p className="#">
-            {" "}
-            Share... Express...Connect...Your world closer together{" "}
-          </p>
+          <div id="successful" ></div>
+          
+          
         </form>
+        <button onClick =  {()=>{this.navigateToSignIn()}}> SIGN IN </button>
+            <p >
+
+            {" "}
+              Share...Express...Connect...Your world closer together...{" "}
+            </p>
+          
       </div>
     );
   }
