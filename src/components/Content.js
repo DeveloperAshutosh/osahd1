@@ -37,9 +37,9 @@ class Content extends Component {
           //here refresh button will refresh the post lists with  latest updated list.
           onClick={() => {
             axios.get(`https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3`)
-              .then((data) => {
-                let title = data.posts;
-                this.setState({title: title})
+              .then((response) => {
+                let title=response.data.posts;
+                this.setState({ title: title })
                 this.props.dispatch(updatePosts(title));
               })
 

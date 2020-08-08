@@ -15,22 +15,22 @@ class Post extends Component {
     };
   }
 
-  currentLoggedInUser() {
-    if (this.props.store.setCurrentUser===false) {
-      this.translate();
-      return (
-        <Post />)
-    }
-    else {
-      if (this.props.store.setCurrentUser===true) {
-        this.translate();
-        this.delete();
-        return (
-          <Post />
-        )
-      }
-    }
-  }
+  // currentLoggedInUser() {
+  //   if (this.props.store.setCurrentUser === false) {
+  //     this.translate();
+  //     return (
+  //       <Post />)
+  //   }
+  //   else {
+  //     if (this.props.store.setCurrentUser === true) {
+  //       this.translate();
+  //       this.delete();
+  //       return (
+  //         <Post />
+  //       )
+  //     }
+  //   }
+  // }
 
   // TRANSLATE METHOD STARTS
   translate() {
@@ -74,8 +74,8 @@ class Post extends Component {
     //button function as toggle between the translation from enflish to french and vice versa.
     this.setState({
       //The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy.
-      source: this.state.source==="en"? "fr":"en",
-      target: this.state.target==="en"? "fr":"en",
+      source: this.state.source === "en" ? "fr" : "en",
+      target: this.state.target === "en" ? "fr" : "en",
     });
   }
 
@@ -103,8 +103,8 @@ class Post extends Component {
     // representing the post title and post body here in post which is fetched in content.js
     return (
       <>
-        <img>{this.props.store.currentUser.photoURL}</img>
-        <h2>{this.props.store.currentUser.name}</h2>
+        {/* <img>{this.props.store.currentUser.photoURL}</img>
+        <h2>{this.props.store.currentUser.name}</h2> */}
         <h3>{this.state.title}</h3>
         <p>{this.state.body}</p>
 
