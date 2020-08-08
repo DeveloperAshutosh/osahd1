@@ -88,19 +88,27 @@ class SignIn extends React.Component {
             this.props.dispatch(setLoggedIn(true));
             // store the existing users in redux
             this.props.dispatch(updateUsers(allUsers));
-            // get the Newsfeed links and redirect the user
 
             // redirect the user to newsfeed
             try {
-              this.props.onNavigate.push("/Newsfeed");
+              this.props.onNavigate.push("/NewsFeed");
             } catch (error) {
-              this.props.history.push("/Newsfeed");
+              this.props.history.push("/NewsFeed");
             }
 
           }
         }
       }); // end of async call
   }; // end of handle submit function
+  navigateToSignUp() {
+    console.log("whts up");
+    try {
+      this.props.onNavigate.push("/sign-up/SignUp");
+    } catch (error) {
+      this.props.history.push("/sign-up/SignUp");
+    }
+  }
+
   render() {
     return (
       <div>
@@ -112,13 +120,19 @@ class SignIn extends React.Component {
           {" "}
           Share...Express...Connect...Your World Closer Together...{" "}
         </p>
-        <section className="buttonInput">
-          <Link className="signup" to="./sign-up/SignUp">
-            SIGN UP
-          </Link>
+
+        <section class="buttonInput">
+          <button
+            onClick={() => {
+              this.navigateToSignUp();
+            }}
+          >
+            SIGN UP{" "}
+          </button>
           <form onSubmit={this.handleSubmit}>
             <div id="warning" onSubmit={this.handleSubmit}></div>
-            <div className="blueSolid">
+            <div class="blueSolid">
+
               <input
                 class="input1"
                 type="email"
@@ -128,6 +142,7 @@ class SignIn extends React.Component {
                 onChange={this.handleChange}
               />
               <input
+
                 className="input2"
                 type="password"
                 id="password"
