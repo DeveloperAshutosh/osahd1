@@ -6,7 +6,7 @@ import axios from "axios";
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       //initial states for the post before translate button is pressed.
       title: this.props.postData.title,
       body: this.props.postData.body,
@@ -14,23 +14,6 @@ class Post extends Component {
       target: "fr", //target language is french
     };
   }
-
-  // currentLoggedInUser() {
-  //   if (this.props.store.setCurrentUser === false) {
-  //     this.translate();
-  //     return (
-  //       <Post />)
-  //   }
-  //   else {
-  //     if (this.props.store.setCurrentUser === true) {
-  //       this.translate();
-  //       this.delete();
-  //       return (
-  //         <Post />
-  //       )
-  //     }
-  //   }
-  // }
 
   // TRANSLATE METHOD STARTS
   translate() {
@@ -47,9 +30,9 @@ class Post extends Component {
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text="";
+        let text = "";
         for (let translation of translatedArray) {
-          text=text+translation[0];
+          text = text + translation[0];
         }
 
         this.setState({ body: text }); //setting the state of body after the translation.
@@ -64,9 +47,9 @@ class Post extends Component {
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text="";
+        let text = "";
         for (let translation of translatedArray) {
-          text=text+translation[0];
+          text = text + translation[0];
         }
 
         this.setState({ title: text }); //setting the state of title after the translation.
@@ -77,18 +60,13 @@ class Post extends Component {
       source: this.state.source === "en" ? "fr" : "en",
       target: this.state.target === "en" ? "fr" : "en",
     });
-  }
-
-  //TRANSLATE METHOD ENDS
-
+  } //TRANSLATE METHOD ENDS
 
   // Delete Method
   delete() {
-    let updatedPostList=this.props.someRandomName.posts.filter(
-      (post) => {
-        return post.id!==this.props.postData.id;
-      }
-    );
+    let updatedPostList = this.props.someRandomName.posts.filter((post) => {
+      return post.id !== this.props.postData.id;
+    });
     // sending the dispatch of updatedPostList to the store.
     this.props.dispatch(updatePosts(updatedPostList));
 
@@ -99,26 +77,66 @@ class Post extends Component {
     );
   }
 
+  renderAuthor() {
+    for (let user of this.props.someRandomName.users) {
+      if (this.props.postData.userId === user.id) {
+        return (
+          <>
+            <img src={user.photoURL} alt="post's author" />
+            <p>{user.name}</p>
+          </>
+        );
+      }
+    }
+  }
+
+  renderDelete() {
+    if (
+      this.props.someRandomName.currentUser.id === this.props.postData.userId
+    ) {
+      return (
+        <button
+          //delete button will delete the post after clicking on it..at the same time the ap
+          onClick={() => {
+            //delete the some random post from the list of posts
+            let updatedPostList = this.props.someRandomName.posts.filter(
+              (post) => {
+                return post.id !== this.props.postData.id;
+              }
+            );
+            // sending the dispatch of updatedPostList to the store.
+            this.props.dispatch(updatePosts(updatedPostList));
+
+            // use a put request to send updated list to our json stroage api after deleting the post.
+            axios.put(
+              "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3",
+              { posts: updatedPostList }
+            );
+          }}
+        >
+          Delete
+        </button>
+      );
+    }
+  }
+
   render() {
     // representing the post title and post body here in post which is fetched in content.js
     return (
       <>
-        {/* <img>{this.props.store.currentUser.photoURL}</img>
-        <h2>{this.props.store.currentUser.name}</h2> */}
+        {this.renderAuthor()}
+        {this.renderDelete()}
         <h3>{this.state.title}</h3>
         <p>{this.state.body}</p>
 
         <button
-          //delete button will delete the post after clicking on it..at the same time the ap
-          onClick={() => {
-            this.delete();
-          }}>  Delete</button>
-
-        <button
           onClick={() => {
             this.translate();
-          }}> Translate Button  </button>
-
+          }}
+        >
+          {" "}
+          Translate Button{" "}
+        </button>
       </>
     );
   }
