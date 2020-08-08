@@ -15,22 +15,22 @@ class Post extends Component {
     };
   }
 
-  // currentLoggedInUser() {
-  //   if (this.props.store.setCurrentUser===false) {
-  //     this.translate();
-  //     return (
-  //       <Post />)
-  //   }
-  //   else {
-  //     if (this.props.store.setCurrentUser===true) {
-  //       this.translate();
-  //       this.delete();
-  //       return (
-  //         <Post />
-  //       )
-  //     }
-  //   }
-  // }
+  currentLoggedInUser() {
+    if (this.props.store.setCurrentUser===false) {
+      this.translate();
+      return (
+        <Post />)
+    }
+    else {
+      if (this.props.store.setCurrentUser===true) {
+        this.translate();
+        this.delete();
+        return (
+          <Post />
+        )
+      }
+    }
+  }
 
   // TRANSLATE METHOD STARTS
   translate() {
