@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePosts } from ".././actions/social-media-app";
+import { updatePosts, setCurrentUser } from ".././actions/social-media-app";
 import axios from "axios";
 
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       //initial states for the post before translate button is pressed.
       title: this.props.postData.title,
       body: this.props.postData.body,
@@ -30,9 +30,9 @@ class Post extends Component {
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text="";
+        let text = "";
         for (let translation of translatedArray) {
-          text=text+translation[0];
+          text = text + translation[0];
         }
 
         this.setState({ body: text }); //setting the state of body after the translation.
@@ -47,9 +47,9 @@ class Post extends Component {
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text="";
+        let text = "";
         for (let translation of translatedArray) {
-          text=text+translation[0];
+          text = text + translation[0];
         }
 
         this.setState({ title: text }); //setting the state of title after the translation.
@@ -57,26 +57,51 @@ class Post extends Component {
     //button function as toggle between the translation from enflish to french and vice versa.
     this.setState({
       //The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy.
-      source: this.state.source==="en"? "fr":"en",
-      target: this.state.target==="en"? "fr":"en",
+      source: this.state.source === "en" ? "fr" : "en",
+      target: this.state.target === "en" ? "fr" : "en",
     });
+  } //TRANSLATE METHOD ENDS
+
+  // Delete Method
+  delete() {
+    let updatedPostList = this.props.someRandomName.posts.filter((post) => {
+      return post.id !== this.props.postData.id;
+    });
+    // sending the dispatch of updatedPostList to the store.
+    this.props.dispatch(updatePosts(updatedPostList));
+
+    // use a put request to send updated list to our json stroage api after deleting the post.
+    axios.put(
+      "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3",
+      { posts: updatedPostList }
+    );
   }
-  //TRANSLATE METHOD ENDS
 
-  render() {
-    // representing the post title and post body here in post which is fetched in content.js
-    return (
-      <>
-        <h3>{this.state.title}</h3>
-        <p>{this.state.body}</p>
+  renderAuthor() {
+    for (let user of this.props.someRandomName.users) {
+      if (this.props.postData.userId === user.id) {
+        return (
+          <>
+            <img src={user.photoURL} alt="post's author" />
+            <p>{user.name}</p>
+          </>
+        );
+      }
+    }
+  }
 
+  renderDelete() {
+    if (
+      this.props.someRandomName.currentUser.id === this.props.postData.userId
+    ) {
+      return (
         <button
           //delete button will delete the post after clicking on it..at the same time the ap
           onClick={() => {
             //delete the some random post from the list of posts
-            let updatedPostList=this.props.someRandomName.posts.filter(
+            let updatedPostList = this.props.someRandomName.posts.filter(
               (post) => {
-                return post.id!==this.props.postData.id;
+                return post.id !== this.props.postData.id;
               }
             );
             // sending the dispatch of updatedPostList to the store.
@@ -91,18 +116,33 @@ class Post extends Component {
         >
           Delete
         </button>
+      );
+    }
+  }
+
+  render() {
+    // representing the post title and post body here in post which is fetched in content.js
+    return (
+      <>
+        {this.renderAuthor()}
+        {this.renderDelete()}
+        <h3>{this.state.title}</h3>
+        <p>{this.state.body}</p>
+
         <button
           onClick={() => {
             this.translate();
           }}
         >
-          Translate Button
+          {" "}
+          Translate Button{" "}
         </button>
       </>
     );
   }
 }
 
+// function takes the current value inside the redux and it will put them into the props of whatever component is calling the function
 function mapStateToProps(state) {
   return {
     someRandomName: state,

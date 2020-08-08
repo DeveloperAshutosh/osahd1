@@ -36,7 +36,13 @@ class Content extends Component {
         <button
           //here refresh button will refresh the post lists with  latest updated list.
           onClick={() => {
-            
+            axios.get(`https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3`)
+              .then((response) => {
+                let title=response.data.posts;
+                this.setState({ title: title })
+                this.props.dispatch(updatePosts(title));
+              })
+
           }}> Refresh  </button>
 
         <div className="container1">
@@ -48,7 +54,7 @@ class Content extends Component {
     );
   }
 }
-
+// function takes the current value inside the redux and it will put them into the props of whatever component is calling the function
 function mapStateToProps(state) {
   return {
     someRandomName: state,

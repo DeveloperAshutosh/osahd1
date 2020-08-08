@@ -89,12 +89,14 @@ class SignIn extends React.Component {
             // store the existing users in redux
             this.props.dispatch(updateUsers(allUsers));
             // get the Newsfeed links and redirect the user
+
             // redirect the user to newsfeed
             try {
               this.props.onNavigate.push("/Newsfeed");
             } catch (error) {
               this.props.history.push("/Newsfeed");
             }
+
           }
         }
       }); // end of async call
