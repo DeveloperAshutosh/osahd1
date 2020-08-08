@@ -7,6 +7,7 @@ import {
   setLoggedIn,
   updateUsers,
 } from "../../actions/social-media-app"; // actions required to dispatch redux
+import "./SignIn.css";
 
 const initialState = {
   email: "",
@@ -87,12 +88,14 @@ class SignIn extends React.Component {
             this.props.dispatch(setLoggedIn(true));
             // store the existing users in redux
             this.props.dispatch(updateUsers(allUsers));
+
             // redirect the user to newsfeed
             try {
               this.props.onNavigate.push("/NewsFeed");
             } catch (error) {
               this.props.history.push("/NewsFeed");
             }
+
           }
         }
       }); // end of async call
@@ -117,6 +120,7 @@ class SignIn extends React.Component {
           {" "}
           Share...Express...Connect...Your World Closer Together...{" "}
         </p>
+
         <section class="buttonInput">
           <button
             onClick={() => {
@@ -128,6 +132,7 @@ class SignIn extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div id="warning" onSubmit={this.handleSubmit}></div>
             <div class="blueSolid">
+
               <input
                 class="input1"
                 type="email"
@@ -137,7 +142,8 @@ class SignIn extends React.Component {
                 onChange={this.handleChange}
               />
               <input
-                class="input2"
+
+                className="input2"
                 type="password"
                 id="password"
                 placeholder="Enter Password:"
