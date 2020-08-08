@@ -54,7 +54,7 @@ class Content extends Component {
     );
   }
 }
-
+// function takes the current value inside the redux and it will put them into the props of whatever component is calling the function
 function mapStateToProps(state) {
   return {
     someRandomName: state,

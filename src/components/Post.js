@@ -18,16 +18,16 @@ class Post extends Component {
   currentLoggedInUser() {
     if (this.props.store.setCurrentUser===false) {
       this.translate();
-      return(
-      <Post />)
+      return (
+        <Post />)
     }
     else {
       if (this.props.store.setCurrentUser===true) {
         this.translate();
         this.delete();
-          return(
-            <Post />
-          )
+        return (
+          <Post />
+        )
       }
     }
   }
@@ -64,7 +64,7 @@ class Post extends Component {
         return response.data[0];
       })
       .then((translatedArray) => {
-        let text="";
+        let text = "";
         for (let translation of translatedArray) {
           text=text+translation[0];
         }
@@ -74,14 +74,14 @@ class Post extends Component {
     //button function as toggle between the translation from enflish to french and vice versa.
     this.setState({
       //The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy.
-      source: this.state.source==="en"? "fr":"en",
-      target: this.state.target==="en"? "fr":"en",
+      source: this.state.source === "en" ? "fr" : "en",
+      target: this.state.target === "en" ? "fr" : "en",
     });
   }
 
   //TRANSLATE METHOD ENDS
 
-  
+
   // Delete Method
   delete() {
     let updatedPostList=this.props.someRandomName.posts.filter(
@@ -110,20 +110,19 @@ class Post extends Component {
           //delete button will delete the post after clicking on it..at the same time the ap
           onClick={() => {
             this.delete();
-          }}>
-          Delete</button>
+          }}>  Delete</button>
+
         <button
           onClick={() => {
             this.translate();
-          }}
-        >
-          Translate Button
-        </button>
+          }}> Translate Button  </button>
+
       </>
     );
   }
 }
 
+// function takes the current value inside the redux and it will put them into the props of whatever component is calling the function
 function mapStateToProps(state) {
   return {
     someRandomName: state,
