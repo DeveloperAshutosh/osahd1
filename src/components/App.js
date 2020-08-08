@@ -7,9 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-
-<SignIn onNavigate={this.props.history} />
-
+        <SignIn onNavigate={this.props.history} />
       </div>
     );
   }

@@ -102,7 +102,7 @@ class NewsFeed extends React.Component {
       let title=this.state.newsFeed;
       let body=this.state.newsFeedDesc;
 
-      const postData=fetch('https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3')
+      fetch('https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3')
         .then(posts => {
           return posts.json();
         }).then(data => {
@@ -113,10 +113,12 @@ class NewsFeed extends React.Component {
           const newPost={
             "id": uuid(), // Ensure a unique ID.
             "userId": this.props.store.currentUser.id,
+            "img" : this.props.store.currentUser.photoURL,
+            "userName": this.props.store.currentUser.name,
             "title": title,
             "body": body
           };
-          const pushData=[newPost, ...data];;
+          const pushData=[newPost, ...data];
           //Using put method to add the new post data to API.
           axios.put('https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3', { "posts": pushData })
           this.props.dispatch(updatePosts(pushData)); //dispatch the updated posts data
