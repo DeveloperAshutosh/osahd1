@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { updateUsers } from "../../actions/social-media-app";
 import { v4 as uuid } from "uuid";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -71,28 +72,40 @@ class SignUp extends React.Component {
       this.state.password !== this.state.passwordConfirmation ||
       this.state.gender.trim() === ""
     ) {
+
+
       if (this.state.name.trim() === "") {
         document.querySelector("#nameWarning").innerHTML =
-          "Name can not be blank";
+          "Name cannot be blank";
       } else {
+        document.querySelector("#nameWarning").innerHTML = "";
+      }
+
+      if (this.state.email.trim() === ""){
+        document.querySelector("#emailWarning").innerHTML = "Email cannot be blank";
+      }
+      else {
         document.querySelector("#nameWarning").innerHTML = "";
       }
       if (this.state.password.trim() === "") {
         document.querySelector("#passwordWarning").innerHTML =
-          "password can not be blank";
+          "password cannot be blank";
       } else {
         document.querySelector("#passwordWarning").innerHTML = "";
       }
       if (this.state.password.trim() !== this.state.passwordConfirmation) {
         document.querySelector("#passwordConfirmationWarning").innerHTML =
-          "Password doesn't match";
+          "Password does not match";
       } else {
         document.querySelector("#passwordConfirmationWarning").innerHTML = "";
       }
     } else {
       document.querySelector("#emailWarning").innerHTML = "";
 
+      document.querySelector("#successful").innerHTML = "Account has been created successfully. Please click Sign In to continue.";
+
       listOfUsers.push(user);
+      this.setState(initialState);
     }
 
     axios
@@ -102,7 +115,7 @@ class SignUp extends React.Component {
       )
 
       .then((response) => {
-        this.setState(initialState);
+        
         this.props.dispatch(updateUsers(listOfUsers));
       });
   };
@@ -182,8 +195,9 @@ class SignUp extends React.Component {
             {" "}
             SIGN UP
           </button>
-          <p className="logo"></p>
-          <p className="#">
+          <div id="successful" ></div>
+          <Link to="../sign-in/SignIn">SIGN IN</Link>
+          <p>
             {" "}
             Share...Express...Connect...Your world closer together...{" "}
           </p>
