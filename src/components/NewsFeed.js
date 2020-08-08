@@ -90,12 +90,20 @@ class NewsFeed extends React.Component {
 
     }
 
-    else if (this.state.newsFeedDesc.trim() === "") {
-      document.querySelector("#errorDesc").innerHTML = "Description required."; //Error message for Title.
+    else {
+      document.querySelector("#errorTitle").innerHTML = "";
 
     }
 
-    else if (this.state.newsFeed.trim() !== "" && this.state.newsFeedDesc.trim() !== "")  //Checking if the fields are not empty.
+    if (this.state.newsFeedDesc.trim() === "") {
+      document.querySelector("#errorDesc").innerHTML = "Description required."; //Error message for Title.
+
+    }
+    else {
+      document.querySelector("#errorTitle").innerHTML = "";
+    }
+
+    if (this.state.newsFeed.trim() !== "" && this.state.newsFeedDesc.trim() !== "")  //Checking if the fields are not empty.
     {
       //Fetching data from API.
 

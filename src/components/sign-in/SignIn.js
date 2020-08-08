@@ -7,7 +7,7 @@ import {
   setLoggedIn,
   updateUsers,
 } from "../../actions/social-media-app"; // actions required to dispatch redux
-import "./SignIn.css";
+import "./Signin.css";
 
 const initialState = {
   email: "",
