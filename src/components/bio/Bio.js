@@ -5,7 +5,7 @@ class Bio extends React.Component {
   render() {
     return (
       <>
-        <img src={this.props.store.currentUser.photoURL} alt="current user" />
+        <img className="myImage" src={this.props.store.currentUser.photoURL} alt="current user" />
         <h2>{this.props.store.currentUser.name}</h2>
         <p>Email: {this.props.store.currentUser.email}</p>
         <p>Activities: {this.props.store.currentUser.activities}</p>

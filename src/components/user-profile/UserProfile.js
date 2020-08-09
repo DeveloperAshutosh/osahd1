@@ -4,7 +4,7 @@ class UserProfile extends React.Component {
   render() {
     return (
       <>
-        <img
+        <img className="photoUser"
           src={this.props.userData.photoURL}
           alt={`showing ${this.props.userData.name}`}
         />

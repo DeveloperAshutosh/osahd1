@@ -186,8 +186,8 @@ class SignUp extends React.Component {
             />
 
             <div id="ageWarning"></div>
-            <label htmlFor="age">Enter Your Age: </label>
-
+            <label className="word" htmlFor="age">Enter Your Age: </label>
+            <br />
             <input className="inputAge"
               type="date"
               id="age"
@@ -196,7 +196,8 @@ class SignUp extends React.Component {
             />
 
             <div id="genderWarning"></div>
-            <label htmlFor="gender">Enter Your Gender: </label>
+            <label className="word" htmlFor="gender">Enter Your Gender: </label>
+            <br />
             <select className="gender"
               id="gender"
               value={this.state.gender}

@@ -14,7 +14,7 @@ class Nav extends React.Component {
 
   renderLogout() {
     if (this.props.store.isLoggedIn) {
-      return <button onClick={() => this.logout()}> Log Out</button>;
+      return <button className="logOutButton" onClick={() => this.logout()}> Log Out</button>;
     }
   }
 

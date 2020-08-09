@@ -10,7 +10,7 @@
         background: url(../../images/TeamBackv.png) no-repeat;
         background-size: 100%;
         background-attachment: fixed;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -73,7 +73,7 @@
     .searchInput {
         margin: 0;
         border: none;
-        width: 161%;
+        width: 168%;
         padding: 8px;
         float: left;
         border-top-left-radius: 15px;
@@ -89,7 +89,7 @@
         font-size: 18px;
         text-decoration: none;
         padding: 6px;
-        width: 22%;
+        width: 22.5%;
         float: left;
         text-align: center;
         cursor: pointer;

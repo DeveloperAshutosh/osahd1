@@ -82,7 +82,7 @@ class Post extends Component {
       if (this.props.postData.userId === user.id) {
         return (
           <>
-            <img src={user.photoURL} alt="post's author" />
+            <img className="photoPost" src={user.photoURL} alt="post's author" />
             <p>{user.name}</p>
           </>
         );

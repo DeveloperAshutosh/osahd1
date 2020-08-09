@@ -51,6 +51,7 @@ h3 {
 
 .fieldSignIn {
     text-align: center;
+    color: rgb(255, 0, 0);
 }
 
 .signInButton {
@@ -114,6 +115,7 @@ h3 {
     .fieldSignIn {
         margin-top: 150px;
         margin-left: -130px;
+        color: rgb(255, 0, 0);
     }
     .signInButton {
         width: 23%;
@@ -185,6 +187,7 @@ h3 {
     .fieldSignIn {
         margin-top: 150px;
         margin-left: -130px;
+        color: rgb(255, 0, 0);
     }
     .signInButton {
         width: 14%;

@@ -32,14 +32,7 @@ class NewsFeed extends React.Component {
             <img src={Logo} alt="logo" />
             <>
               <Nav />
-              <button
-                onClick={() => {
-                  console.log("button clicked");
-                }}
-              >
-                Logout
-          </button>
-
+              <h1 className="newsfeedBlueBack" >NEWSFEED</h1>
               <Bio />
               <h1>News Feed</h1>
               <form onSubmit={this.handleSubmit}>
