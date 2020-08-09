@@ -144,7 +144,7 @@ class SignUp extends React.Component {
         <h3 className="headWelcome">Welcome</h3>
         <p class="statementSignUp">
           {" "}
-            Share...Express...Connect...Your world closer together...{" "}
+            Share...Express...Connect...Your World Closer Together...{" "}
         </p>
         <section className="fieldSignUp">
           <form onSubmit={this.handleSubmit}>
@@ -207,13 +207,13 @@ class SignUp extends React.Component {
               <option>Female</option>
             </select>
             <br />
-            <button type="submit" onSubmit={this.handleSubmit}>
+            <button className="buttonSignUp" type="submit" onSubmit={this.handleSubmit}>
               {" "}
             SIGN UP
           </button>
+            <button className="buttonSignIn" onClick={() => { this.navigateToSignIn() }}> SIGN IN </button>
             <div id="successful" ></div>
           </form>
-          <button onClick={() => { this.navigateToSignIn() }}> SIGN IN </button>
         </section>
         <div className="frontBlue"></div>
         <div className="backBlue"></div>
