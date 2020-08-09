@@ -28,48 +28,45 @@ class NewsFeed extends React.Component {
     } else {
       return (
         <div className="newsFeedBackground">
-          <div className="newsfeedSideBar">
-            <div className="logoNewsFeed">
-              <img src={Logo} alt="logo" />
-            </div>
-            <Bio />
-          </div>
-          <div className="newsfeedMainContent">
-            <Nav />
+          <div className="logoNewsFeed">
+            <img src={Logo} alt="logo" />
+            <>
+              <Nav />
+              <h1 className="newsfeedBlueBack" >NEWSFEED</h1>
+              <Bio />
+              <h1>News Feed</h1>
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  type="text"
+                  name="newsFeed"
+                  id="newsFeed"
+                  required
+                  value={this.state.newsFeed}
+                  onChange={(event) =>
+                    this.updateItem("newsFeed", event.target.value)
+                  }
+                  placeholder="Title..."
+                />
+                <div id="errorTitle"></div>
+                <br />
 
-            <h1>News Feed</h1>
-            <form className="createPost" onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                name="newsFeed"
-                id="newsFeed"
-                required
-                value={this.state.newsFeed}
-                onChange={(event) =>
-                  this.updateItem("newsFeed", event.target.value)
-                }
-                placeholder="Enter a post title..."
-              />
-              <div id="errorTitle"></div>
-              <br />
-
-              <textarea
-                id="newsFeedDesc"
-                required
-                placeholder="Enter a post body..."
-                rows="5"
-                cols="25"
-                value={this.state.newsFeedDesc}
-                onChange={(event) =>
-                  this.updateItem("newsFeedDesc", event.target.value)
-                }
-              />
-              <div id="errorDesc"></div>
-              <br />
-              <input type="submit" value="Post Feed" onClick={this.addPost} />
-            </form>
-
-            <Content />
+                <textarea
+                  id="newsFeedDesc"
+                  required
+                  placeholder="What's on your mind..."
+                  rows="5"
+                  cols="25"
+                  value={this.state.newsFeedDesc}
+                  onChange={(event) =>
+                    this.updateItem("newsFeedDesc", event.target.value)
+                  }
+                />
+                <div id="errorDesc"></div>
+                <br />
+                <input type="submit" value="Post Feed" onClick={this.addPost} />
+              </form>
+              <Content />
+            </>
           </div>
         </div>
       );
@@ -109,10 +106,12 @@ class NewsFeed extends React.Component {
       let title = this.state.newsFeed;
       let body = this.state.newsFeedDesc;
 
+
       fetch(
         "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3"
       )
         .then((posts) => {
+
           return posts.json();
         })
         .then((data) => {
@@ -120,14 +119,14 @@ class NewsFeed extends React.Component {
         })
         //Assign values to data of posts.
 
-        .then((data) => {
+        .then(data => {
           const newPost = {
-            id: uuid(), // Ensure a unique ID.
-            userId: this.props.store.currentUser.id,
-            img: this.props.store.currentUser.photoURL,
-            userName: this.props.store.currentUser.name,
-            title: title,
-            body: body,
+            "id": uuid(), // Ensure a unique ID.
+            "userId": this.props.store.currentUser.id,
+            "img": this.props.store.currentUser.photoURL,
+            "userName": this.props.store.currentUser.name,
+            "title": title,
+            "body": body
           };
           const pushData = [newPost, ...data];
 

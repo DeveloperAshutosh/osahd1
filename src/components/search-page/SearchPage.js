@@ -40,7 +40,7 @@ class SearchPage extends React.Component {
             </div>
             <div>
               <Nav />
-              <h1>Search</h1>
+              <h1>SEARCH</h1>
               <SearchBar />
             </div>
           </div>

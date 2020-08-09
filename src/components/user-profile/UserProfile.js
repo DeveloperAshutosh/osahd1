@@ -9,7 +9,7 @@ class UserProfile extends React.Component {
           src={this.props.userData.photoURL}
           alt={`showing ${this.props.userData.name}`}
         />
-        <h3>{this.props.userData.name}</h3>
+        <h3 className="userName">{this.props.userData.name}</h3>
         <ul>
           {this.props.userData.activities.map((activity) => {
             return <li key={activity}>{activity}</li>;

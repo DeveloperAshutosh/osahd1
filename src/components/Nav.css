@@ -36,10 +36,14 @@
   margin-right: 10px;
 }
 
+.navBar a:hover {
+  background-color: rgba(236, 138, 29, 0.4);
+}
+
 /* style the logout button */
 .navBar button {
   border: none;
-  padding: 10px 20px;
+  padding: 6px 20px;
   background-color: rgb(236, 138, 29);
   color: rgb(255, 255, 255);
   font-weight: bold;
@@ -47,6 +51,7 @@
   font-size: 15px;
   cursor: pointer;
   border-radius: 20px;
+  margin-right: 10px;
 }
 
 .navBar button:hover {

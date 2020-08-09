@@ -12,6 +12,7 @@
   color: rgb(255, 255, 255);
   border-radius: 20px;
   text-align: center;
+  margin-right: 7px;
 }
 
 /* style the logo on search page*/
@@ -30,6 +31,8 @@
   /* style the container for the breadcrumbs, h1 and search bar*/
   .searchPageBackground > div:first-of-type > div:nth-of-type(2) {
     width: 65%;
+    margin-top: 50px;
+    margin-right: 50px;
   }
 
   .searchPageBackground {

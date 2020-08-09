@@ -1,68 +1,32 @@
-/* style a single row for newsfeed */
-.newsFeedBackground {
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-}
-
-/* style the left side bar*/
-.newsfeedSideBar {
-  padding: 10px;
-  text-align: center;
-}
-
-/* style the logo */
 .logoNewsFeed {
-  margin-top: 50px;
-}
-
-/* style the H1 of this page */
-.newsfeedMainContent h1 {
-  background-color: rgb(43, 175, 203);
-  height: 50px;
-  color: rgb(255, 255, 255);
-  border-radius: 20px;
-  text-align: center;
-}
-
-/* Style the create post form */
-.createPost {
-}
-
-.createPost input[type="text"] {
-  border: 3px solid green;
-}
-
-.createPost textarea {
-  border: 3px solid red;
-}
-
-.createPost input[type="submit"] {
-  background-color: black;
-  color: red;
+    text-align: center;
+    margin-top: 50px;
 }
 
 @media screen and (min-width: 960px) {
-  /* Style two columns for newsfeed */
-  .newsFeedBackground {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  /* style the left side bar*/
-  .newsfeedSideBar {
-    padding: 20px;
-    width: 30%;
-    text-align: left;
-  }
-
-  .logoNewsFeed {
-    text-align: center;
-  }
-
-  /* style the main content of newsfeed */
-  .newsfeedMainContent {
-    width: 65%;
-  }
+    .newsFeedBackground {
+        background: url(../images/TeamBackv.png) no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    .logoNewsFeed {
+        margin-top: 80px;
+        margin-right: 920px;
+    }
+    .newsfeedBlueBack {
+        background-color: rgb(43, 175, 203);
+        width: 850px;
+        height: 50px;
+        margin-left: 450px;
+        margin-top: -170px;
+        color: rgb(255, 255, 255);
+        border-radius: 20px;
+    }
 }
