@@ -30,44 +30,44 @@ class NewsFeed extends React.Component {
         <div className="newsFeedBackground">
           <div className="logoNewsFeed">
             <img src={Logo} alt="logo" />
-            <>
-              <Nav />
-              <h1 className="newsfeedBlueBack" >NEWSFEED</h1>
-              <Bio />
-              <h1>News Feed</h1>
-              <form onSubmit={this.handleSubmit}>
-                <input
-                  type="text"
-                  name="newsFeed"
-                  id="newsFeed"
-                  required
-                  value={this.state.newsFeed}
-                  onChange={(event) =>
-                    this.updateItem("newsFeed", event.target.value)
-                  }
-                  placeholder="Title..."
-                />
-                <div id="errorTitle"></div>
-                <br />
-
-                <textarea
-                  id="newsFeedDesc"
-                  required
-                  placeholder="What's on your mind..."
-                  rows="5"
-                  cols="25"
-                  value={this.state.newsFeedDesc}
-                  onChange={(event) =>
-                    this.updateItem("newsFeedDesc", event.target.value)
-                  }
-                />
-                <div id="errorDesc"></div>
-                <br />
-                <input type="submit" value="Post Feed" onClick={this.addPost} />
-              </form>
-              <Content />
-            </>
           </div>
+          <>
+            <Nav />
+            <h1 className="newsfeedBlueBack" >NEWSFEED</h1>
+            <Bio />
+            <h1>News Feed</h1>
+            <form onSubmit={this.handleSubmit}>
+              <input
+                type="text"
+                name="newsFeed"
+                id="newsFeed"
+                required
+                value={this.state.newsFeed}
+                onChange={(event) =>
+                  this.updateItem("newsFeed", event.target.value)
+                }
+                placeholder="Title..."
+              />
+              <div id="errorTitle"></div>
+              <br />
+
+              <textarea
+                id="newsFeedDesc"
+                required
+                placeholder="What's on your mind..."
+                rows="5"
+                cols="25"
+                value={this.state.newsFeedDesc}
+                onChange={(event) =>
+                  this.updateItem("newsFeedDesc", event.target.value)
+                }
+              />
+              <div id="errorDesc"></div>
+              <br />
+              <input type="submit" value="Post Feed" onClick={this.addPost} />
+            </form>
+            <Content />
+          </>
         </div>
       );
     }

@@ -69,33 +69,17 @@
         margin-top: -170px;
         color: rgb(255, 255, 255);
         border-radius: 20px;
+        text-align: center;
     }
     .searchInput {
         margin: 0;
         border: none;
-        width: 168%;
+        width: 50%;
         padding: 8px;
         float: left;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        border-radius: 20px;
         border: 3px solid rgb(255, 170, 50);
         margin-left: 450px;
         margin-top: -54px;
-    }
-    .searchName {
-        color: rgb(255, 255, 255);
-        background-color: rgb(255, 170, 50);
-        font-weight: bold;
-        font-size: 18px;
-        text-decoration: none;
-        padding: 6px;
-        width: 22.5%;
-        float: left;
-        text-align: center;
-        cursor: pointer;
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
-        margin-left: 1190px;
-        margin-top: -5px;
     }
 }

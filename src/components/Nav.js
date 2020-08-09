@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import "./Nav.css";
 
 import { setLoggedIn, setCurrentUser } from ".././actions/social-media-app";
 
@@ -20,14 +21,20 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <nav>
+      <nav className="navBar">
+        <div>
         <ul>
           <li>
-            <Link className="homepageLink" to="/HomePage">Home Page</Link>
-            <Link clasName="newsfeedLink" to="/NewsFeed">News Feed</Link>
-            <Link className="searchpageLink" to="/Search">Search Page</Link>
+            <Link  to="/HomePage">Home Page</Link>
+            </li>
+            <li>
+            <Link  to="/NewsFeed">News Feed</Link>
+            </li>
+            <li>
+            <Link  to="/Search">Search Page</Link>
           </li>
         </ul>
+        </div>
         {this.renderLogout()}
       </nav>
     );

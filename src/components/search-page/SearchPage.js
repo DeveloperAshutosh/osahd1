@@ -36,13 +36,13 @@ class SearchPage extends React.Component {
         <div className="searchPageBackground">
           <div className="logoSearchPage">
             <img src={Logo} alt="logo" />
-            <>
-              <Nav />
-              <h1 className="searchBlueBack" >SEARCH</h1>
-              <SearchBar />
-              {this.renderUsers()}
-            </>
           </div>
+          <>
+            <Nav />
+            <h1 className="searchBlueBack" >SEARCH</h1>
+            <SearchBar />
+            {this.renderUsers()}
+          </>
         </div>
       );
     }
