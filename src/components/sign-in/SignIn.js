@@ -121,38 +121,40 @@ class SignIn extends React.Component {
           {" "}
           Share...Express...Connect...Your World Closer Together...{" "}
         </p>
-        <button className="signUpButton"
-          onClick={() => {
-            this.navigateToSignUp();
-          }}
-        >
-          SIGN UP{" "}
-        </button>
-        <form onSubmit={this.handleSubmit}>
-          <div id="warning" onSubmit={this.handleSubmit}></div>
-          <div className="blueSolid">
-            <input
-              className="input1"
-              type="email"
-              id="email"
-              placeholder="Enter Email:"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <input
-              className="input2"
-              type="password"
-              id="password"
-              placeholder="Enter Password:"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          <button className="signInButton" type="submit" onSubmit={this.handleSubmit}>
-            {" "}
-              SIGN IN{" "}
+        <section className="fieldSignIn">
+          <button className="signUpButton"
+            onClick={() => {
+              this.navigateToSignUp();
+            }}
+          >
+            SIGN UP{" "}
           </button>
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            <div id="warning" onSubmit={this.handleSubmit}></div>
+            <div className="blueSolid">
+              <input
+                className="input1"
+                type="email"
+                id="email"
+                placeholder="Enter Email:"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <input
+                className="input2"
+                type="password"
+                id="password"
+                placeholder="Enter Password:"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
+            <button className="signInButton" type="submit" onSubmit={this.handleSubmit}>
+              {" "}
+              SIGN IN{" "}
+            </button>
+          </form>
+        </section>
         <div className="blueOpacity"></div>
       </div>
     );

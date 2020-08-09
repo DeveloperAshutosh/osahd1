@@ -21,12 +21,11 @@ h3 {
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
-    width: 36%;
+    width: 59%;
     text-align: center;
     cursor: pointer;
     border-radius: 20px;
-    margin-top: 40px;
-    margin-left: 180px;
+    margin-top: -10px;
 }
 
 .signUpButton:hover {
@@ -40,7 +39,6 @@ h3 {
     height: 22px;
     text-align: center;
     margin-bottom: 20px;
-    margin-left: 70px;
 }
 
 .input2 {
@@ -49,7 +47,10 @@ h3 {
     height: 22px;
     text-align: center;
     margin-bottom: 30px;
-    margin-left: 70px;
+}
+
+.fieldSignIn {
+    text-align: center;
 }
 
 .signInButton {
@@ -58,13 +59,12 @@ h3 {
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
-    width: 36%;
+    width: 59%;
     text-align: center;
     cursor: pointer;
     border-radius: 20px;
     margin-top: 40px;
     margin-bottom: 100px;
-    margin-left: 180px;
 }
 
 .signInButton:hover {
@@ -73,20 +73,69 @@ h3 {
 
 .blueSolid {
     background-color: rgb(43, 175, 203);
-    width: 350px;
+    width: 250px;
     height: 140px;
-    margin-left: 105px;
+    margin-left: 56px;
     border-radius: 30px;
     margin-top: 40px;
 }
 
 .blueOpacity {
     background-color: rgba(43, 175, 203, .4);
-    width: 500px;
+    width: 310px;
     height: 400px;
-    margin-left: 30px;
+    margin-left: 26px;
     border-radius: 30px;
     margin-top: -430px;
+}
+
+/*For tablet and desktop*/
+
+@media screen and (min-width: 768px) {
+    .signUpButton {
+        width: 23%;
+        margin-left: 140px;
+    }
+    .input1 {
+        margin-top: 30px;
+        border-radius: 20px;
+        width: 200px;
+        height: 22px;
+        margin-bottom: 20px;
+        margin-left: -5px;
+    }
+    .input2 {
+        margin-left: -5px;
+        margin-bottom: 30px;
+        border-radius: 20px;
+        width: 200px;
+        height: 22px;
+    }
+    .fieldSignIn {
+        margin-top: 150px;
+        margin-left: -130px;
+    }
+    .signInButton {
+        width: 23%;
+        margin-top: 50px;
+        margin-left: 140px;
+    }
+    .blueSolid {
+        background-color: rgb(43, 175, 203);
+        width: 400px;
+        height: 140px;
+        margin-left: 320px;
+        border-radius: 30px;
+        margin-top: 50px;
+    }
+    .blueOpacity {
+        background-color: rgba(43, 175, 203, .4);
+        width: 550px;
+        height: 400px;
+        margin-left: 113px;
+        border-radius: 30px;
+        margin-top: -450px;
+    }
 }
 
 /*For desktop*/
@@ -99,51 +148,54 @@ h3 {
     }
     .logoSignIn {
         float: right;
-        margin-top: 200px;
+        margin-top: 50px;
         margin-right: 260px;
     }
     h3 {
         float: right;
-        margin-top: 410px;
-        margin-right: -123px;
+        margin-top: 260px;
+        margin-right: -125px;
     }
     .statementSignIn {
         float: right;
-        margin-top: 450px;
-        margin-right: -274px;
+        margin-top: 300px;
+        margin-right: -280px;
         font-size: 15px;
         font-weight: 500;
     }
     .signUpButton {
-        width: 15.1%;
-        margin-left: 270px;
-        margin-top: 160px;
+        width: 14%;
+        margin-left: 5px;
     }
     .input1 {
         margin-top: 30px;
         border-radius: 20px;
         width: 200px;
         height: 22px;
-        text-align: center;
         margin-bottom: 20px;
+        margin-left: -5px;
     }
     .input2 {
+        margin-left: -5px;
         margin-bottom: 30px;
         border-radius: 20px;
         width: 200px;
         height: 22px;
-        text-align: center;
+    }
+    .fieldSignIn {
+        margin-top: 150px;
+        margin-left: -130px;
     }
     .signInButton {
-        width: 15.1%;
+        width: 14%;
         margin-top: 50px;
-        margin-left: 270px;
+        margin-left: 5px;
     }
     .blueSolid {
         background-color: rgb(43, 175, 203);
         width: 350px;
         height: 140px;
-        margin-left: 200px;
+        margin-left: 320px;
         border-radius: 30px;
         margin-top: 50px;
     }
@@ -151,7 +203,7 @@ h3 {
         background-color: rgba(43, 175, 203, .4);
         width: 500px;
         height: 400px;
-        margin-left: 123px;
+        margin-left: 113px;
         border-radius: 30px;
         margin-top: -450px;
     }

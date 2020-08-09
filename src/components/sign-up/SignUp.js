@@ -146,73 +146,77 @@ class SignUp extends React.Component {
           {" "}
             Share...Express...Connect...Your world closer together...{" "}
         </p>
-        <form onSubmit={this.handleSubmit}>
-          {this.getUsers()}
-          <div id="nameWarning"></div>
-          <label htmlFor="name">Enter Full Name: </label>
-          <input
-            type="text"
-            id="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
+        <section className="fieldSignUp">
+          <form onSubmit={this.handleSubmit}>
+            {this.getUsers()}
+            <div id="nameWarning"></div>
+            <input className="inputSignUp"
+              type="text"
+              id="name"
+              placeholder="Enter Full Name:"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
 
-          <div id="emailWarning"></div>
-          <label htmlFor="email">Enter Email: </label>
-          <input
-            type="email"
-            id="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
+            <div id="emailWarning"></div>
+            <input className="inputSignUp"
+              type="email"
+              id="email"
+              placeholder="Enter Email:"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
 
-          <div id="passwordWarning"></div>
-          <label htmlFor="password">Enter Password: </label>
-          <input
-            type="password"
-            id="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
+            <div id="passwordWarning"></div>
+            <input className="inputSignUp"
+              type="password"
+              id="password"
+              placeholder="Enter Password:"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
 
-          <div id="passwordConfirmationWarning"></div>
-          <label htmlFor="passwordConfirmation">Confirm Password: </label>
-          <input
-            type="password"
-            id="passwordConfirmation"
-            value={this.state.passwordConfirmation}
-            onChange={this.handleChange}
-          />
+            <div id="passwordConfirmationWarning"></div>
+            <input className="inputSignUp"
+              type="password"
+              id="passwordConfirmation"
+              placeholder="Confirm Password:"
+              value={this.state.passwordConfirmation}
+              onChange={this.handleChange}
+            />
 
-          <div id="ageWarning"></div>
-          <label htmlFor="age">Enter Your Age: </label>
+            <div id="ageWarning"></div>
+            <label htmlFor="age">Enter Your Age: </label>
 
-          <input
-            type="date"
-            id="age"
-            value={this.state.age}
-            onChange={this.handleChange}
-          />
+            <input className="inputAge"
+              type="date"
+              id="age"
+              value={this.state.age}
+              onChange={this.handleChange}
+            />
 
-          <div id="genderWarning"></div>
-          <label htmlFor="gender">Enter Your Gender: </label>
-          <select
-            id="gender"
-            value={this.state.gender}
-            onChange={this.handleChange}
-          >
-            <option></option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-          <br />
-          <button type="submit" onSubmit={this.handleSubmit}>
-            {" "}
+            <div id="genderWarning"></div>
+            <label htmlFor="gender">Enter Your Gender: </label>
+            <select className="gender"
+              id="gender"
+              value={this.state.gender}
+              onChange={this.handleChange}
+            >
+              <option></option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            <br />
+            <button type="submit" onSubmit={this.handleSubmit}>
+              {" "}
             SIGN UP
           </button>
-          <div id="successful" ></div>
-        </form>
-        <button onClick={() => { this.navigateToSignIn() }}> SIGN IN </button>
+            <div id="successful" ></div>
+          </form>
+          <button onClick={() => { this.navigateToSignIn() }}> SIGN IN </button>
+        </section>
+        <div className="frontBlue"></div>
+        <div className="backBlue"></div>
       </div>
     );
   }
