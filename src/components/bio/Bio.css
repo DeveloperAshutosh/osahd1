@@ -1,0 +1,14 @@
+/* style the bio user image */
+.bio img {
+  border-radius: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+/* style any input fields under the bio */
+.bio input {
+}
+
+/* style the buttons under the bio section */
+.bio button {
+}

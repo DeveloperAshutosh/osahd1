@@ -1,10 +1,11 @@
 /* style the whole post container */
 .post {
   background-color: white;
-  width: 400px; /* set the width of a post */
+  /*width: 400px; /* set the width of a post */
+  border: 1px solid lightgray;
   padding: 20px;
   border-radius: 25px;
-  margin: 0 auto 25px auto;
+  margin: 0 4% 25px 4%;
 }
 
 /* style the div holding post author image, name and the delete button*/
@@ -24,6 +25,8 @@
 .post img {
   border-radius: 10px;
   margin-right: 15px;
+  width: 70px;
+  height: 70px;
 }
 
 /* style the container with post title and body */
@@ -44,6 +47,7 @@
 .post button {
   border: none;
   font-weight: 700;
+  font-size: 16px;
   background-color: transparent;
   color: grey;
   transition: 0.5s;

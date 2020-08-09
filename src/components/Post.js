@@ -120,7 +120,7 @@ class Post extends Component {
           }}
           className="deleteButton"
         >
-          Delete
+          <em class="far fa-trash-alt"></em>
         </button>
       );
     }
@@ -145,8 +145,7 @@ class Post extends Component {
               this.translate();
             }}
           >
-            {" "}
-            Translate Button{" "}
+            <em class="fas fa-language"></em> Translate
           </button>
         </div>
       </article>

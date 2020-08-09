@@ -36,10 +36,9 @@ class NewsFeed extends React.Component {
           </div>
           <div className="newsfeedMainContent">
             <Nav />
-            <h1 className="newsfeedBlueBack">NEWSFEED</h1>
 
             <h1>News Feed</h1>
-            <form onSubmit={this.handleSubmit}>
+            <form className="createPost" onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 name="newsFeed"
@@ -49,7 +48,7 @@ class NewsFeed extends React.Component {
                 onChange={(event) =>
                   this.updateItem("newsFeed", event.target.value)
                 }
-                placeholder="Title..."
+                placeholder="Enter a post title..."
               />
               <div id="errorTitle"></div>
               <br />
@@ -57,7 +56,7 @@ class NewsFeed extends React.Component {
               <textarea
                 id="newsFeedDesc"
                 required
-                placeholder="What's on your mind..."
+                placeholder="Enter a post body..."
                 rows="5"
                 cols="25"
                 value={this.state.newsFeedDesc}
@@ -69,6 +68,7 @@ class NewsFeed extends React.Component {
               <br />
               <input type="submit" value="Post Feed" onClick={this.addPost} />
             </form>
+
             <Content />
           </div>
         </div>

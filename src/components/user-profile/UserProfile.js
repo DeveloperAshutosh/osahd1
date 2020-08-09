@@ -1,10 +1,11 @@
 import React from "react";
+import "./UserProfile.css";
 
 class UserProfile extends React.Component {
   render() {
     return (
-      <>
-        <img className="photoUser"
+      <div className="userProfile">
+        <img
           src={this.props.userData.photoURL}
           alt={`showing ${this.props.userData.name}`}
         />
@@ -14,7 +15,7 @@ class UserProfile extends React.Component {
             return <li key={activity}>{activity}</li>;
           })}
         </ul>
-      </>
+      </div>
     );
   }
 }
