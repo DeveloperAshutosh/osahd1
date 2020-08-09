@@ -2,13 +2,14 @@ import React from "react";
 import "./App.css";
 import Nav from "./Nav";
 import { connect } from "react-redux";
-
 import Content from "./Content";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { updatePosts } from "../actions/social-media-app";
 import Bio from "./bio/Bio";
 import UnauthorizedUser from "./unauthorized-user/UnauthorizedUser";
+import "./NewsFeed.css";
+import Logo from "../images/Logo.png";
 
 class NewsFeed extends React.Component {
   constructor(props) {
@@ -26,51 +27,55 @@ class NewsFeed extends React.Component {
       return <UnauthorizedUser />;
     } else {
       return (
-        <>
-          <Nav />
-          <button
-            onClick={() => {
-              console.log("button clicked");
-            }}
-          >
-            Logout
+        <div className="newsFeedBackground">
+          <div className="logoNewsFeed">
+            <img src={Logo} alt="logo" />
+            <>
+              <Nav />
+              <button
+                onClick={() => {
+                  console.log("button clicked");
+                }}
+              >
+                Logout
           </button>
 
-          <Bio />
-          <h1>News Feed</h1>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="newsFeed"
-              id="newsFeed"
-              required
-              value={this.state.newsFeed}
-              onChange={(event) =>
-                this.updateItem("newsFeed", event.target.value)
-              }
-              placeholder="Title..."
-            />
-            <div id="errorTitle"></div>
-            <br />
+              <Bio />
+              <h1>News Feed</h1>
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  type="text"
+                  name="newsFeed"
+                  id="newsFeed"
+                  required
+                  value={this.state.newsFeed}
+                  onChange={(event) =>
+                    this.updateItem("newsFeed", event.target.value)
+                  }
+                  placeholder="Title..."
+                />
+                <div id="errorTitle"></div>
+                <br />
 
-            <textarea
-              id="newsFeedDesc"
-              required
-              placeholder="What's on your mind..."
-              rows="5"
-              cols="25"
-              value={this.state.newsFeedDesc}
-              onChange={(event) =>
-                this.updateItem("newsFeedDesc", event.target.value)
-              }
-            />
-            <div id="errorDesc"></div>
-            <br />
-            <input type="submit" value="Post Feed" onClick={this.addPost} />
-          </form>
-
-          <Content />
-        </>
+                <textarea
+                  id="newsFeedDesc"
+                  required
+                  placeholder="What's on your mind..."
+                  rows="5"
+                  cols="25"
+                  value={this.state.newsFeedDesc}
+                  onChange={(event) =>
+                    this.updateItem("newsFeedDesc", event.target.value)
+                  }
+                />
+                <div id="errorDesc"></div>
+                <br />
+                <input type="submit" value="Post Feed" onClick={this.addPost} />
+              </form>
+              <Content />
+            </>
+          </div>
+        </div>
       );
     }
   }
@@ -122,15 +127,15 @@ class NewsFeed extends React.Component {
         //Assign values to data of posts.
 
         .then(data => {
-          const newPost={
+          const newPost = {
             "id": uuid(), // Ensure a unique ID.
             "userId": this.props.store.currentUser.id,
-            "img" : this.props.store.currentUser.photoURL,
+            "img": this.props.store.currentUser.photoURL,
             "userName": this.props.store.currentUser.name,
             "title": title,
             "body": body
           };
-          const pushData=[newPost, ...data];
+          const pushData = [newPost, ...data];
 
           //Using put method to add the new post data to API.
           axios.put(

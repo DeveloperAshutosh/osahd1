@@ -35,8 +35,8 @@ class SearchBar extends React.Component {
   render() {
     return (
       <>
-        <label htmlFor="search">Search</label>
-        <input
+        <p className="searchName">Search</p>
+        <input className="searchInput"
           name="search"
           type="text"
           placeholder="Search a user's name or activity"

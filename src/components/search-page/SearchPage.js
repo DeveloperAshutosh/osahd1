@@ -4,6 +4,8 @@ import Nav from "../Nav";
 import UserProfile from "../user-profile/UserProfile";
 import SearchBar from "../search-bar/SearchBar";
 import UnauthorizedUser from "../unauthorized-user/UnauthorizedUser";
+import "./SearchPage.css";
+import Logo from "../../images/Logo.png";
 
 class SearchPage extends React.Component {
   // handle the rendering of search results / error messages
@@ -31,12 +33,17 @@ class SearchPage extends React.Component {
       return <UnauthorizedUser />;
     } else {
       return (
-        <>
-          <Nav />
-          <h1>Search</h1>
-          <SearchBar />
-          {this.renderUsers()}
-        </>
+        <div className="searchPageBackground">
+          <div className="logoSearchPage">
+            <img src={Logo} alt="logo" />
+            <>
+              <Nav />
+              <h1 className="searchBlueBack" >SEARCH</h1>
+              <SearchBar />
+              {this.renderUsers()}
+            </>
+          </div>
+        </div>
       );
     }
   }

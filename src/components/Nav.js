@@ -23,9 +23,9 @@ class Nav extends React.Component {
       <nav>
         <ul>
           <li>
-            <Link to="/HomePage">Home Page</Link>
-            <Link to="/NewsFeed">News Feed</Link>
-            <Link to="/Search">Search Page</Link>
+            <Link className="homepageLink" to="/HomePage">Home Page</Link>
+            <Link clasName="newsfeedLink" to="/NewsFeed">News Feed</Link>
+            <Link className="searchpageLink" to="/Search">Search Page</Link>
           </li>
         </ul>
         {this.renderLogout()}
