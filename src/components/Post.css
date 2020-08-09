@@ -1,0 +1,60 @@
+/* style the whole post container */
+.post {
+  background-color: white;
+  width: 400px; /* set the width of a post */
+  padding: 20px;
+  border-radius: 25px;
+  margin: 0 auto 25px auto;
+}
+
+/* style the div holding post author image, name and the delete button*/
+.post div:first-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* style the posts author name */
+.post div:first-of-type > p {
+  font-weight: 600;
+}
+
+/* style the post author image */
+.post img {
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+/* style the container with post title and body */
+.post div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+/* style the button container at the bottom of the post <translate.. etc>*/
+.postButtons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  border-top: 1px solid lightgrey;
+}
+
+/* style how buttons on a post appear*/
+.post button {
+  border: none;
+  font-weight: 700;
+  background-color: transparent;
+  color: grey;
+  transition: 0.5s;
+}
+
+/* set style when delete button is hovered over */
+.deleteButton:hover {
+  color: #e53935;
+}
+
+/* set style when translate button is hovered over */
+.translateButton:hover {
+  color: #0288d1;
+}

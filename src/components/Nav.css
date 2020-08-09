@@ -1,29 +1,34 @@
-.navBar > div {
-    width: 100%;
-}.navBar ul {
-    display: flex;
+/* style the nav bar holding breadcrumbs and logout */
+.navBar {
+  display: flex;
+  justify-content: space-between;
 }
 
-.navBar a {
-    background-color: rgba(43, 175, 203, .4);
-    color: rgb(90, 90, 90);
-    font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 15px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 20px;
-    text-decoration: none;
-    padding: 1px 30px;
-    margin-right: 10px;
+/* style the breadcrumb links */
+.navBar ul {
+  display: flex;
 }
 
 .navBar li {
-    text-decoration: none;
-    list-style: none;
+  text-decoration: none;
+  list-style: none;
 }
 
+.navBar a {
+  background-color: rgba(43, 175, 203, 0.4);
+  color: rgb(90, 90, 90);
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 20px;
+  text-decoration: none;
+  padding: 1px 30px;
+  margin-right: 10px;
+}
 
+/* style the logout button */
 .navBar button {
-    border:none
+  border: none;
 }

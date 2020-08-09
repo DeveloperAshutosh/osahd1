@@ -15,26 +15,30 @@ class Nav extends React.Component {
 
   renderLogout() {
     if (this.props.store.isLoggedIn) {
-      return <button className="logOutButton" onClick={() => this.logout()}> Log Out</button>;
+      return (
+        <button className="logOutButton" onClick={() => this.logout()}>
+          {" "}
+          Log Out
+        </button>
+      );
     }
   }
 
   render() {
     return (
       <nav className="navBar">
-        <div>
         <ul>
           <li>
-            <Link  to="/HomePage">Home Page</Link>
-            </li>
-            <li>
-            <Link  to="/NewsFeed">News Feed</Link>
-            </li>
-            <li>
-            <Link  to="/Search">Search Page</Link>
+            <Link to="/HomePage">Home Page</Link>
+          </li>
+          <li>
+            <Link to="/NewsFeed">News Feed</Link>
+          </li>
+          <li>
+            <Link to="/Search">Search Page</Link>
           </li>
         </ul>
-        </div>
+
         {this.renderLogout()}
       </nav>
     );

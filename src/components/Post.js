@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updatePosts, setCurrentUser } from ".././actions/social-media-app";
 import axios from "axios";
+import "./Post.css";
 
 class Post extends Component {
   constructor(props) {
@@ -82,7 +83,11 @@ class Post extends Component {
       if (this.props.postData.userId === user.id) {
         return (
           <>
-            <img className="photoPost" src={user.photoURL} alt="post's author" />
+            <img
+              className="photoPost"
+              src={user.photoURL}
+              alt="post's author"
+            />
             <p>{user.name}</p>
           </>
         );
@@ -113,6 +118,7 @@ class Post extends Component {
               { posts: updatedPostList }
             );
           }}
+          className="deleteButton"
         >
           Delete
         </button>
@@ -123,21 +129,27 @@ class Post extends Component {
   render() {
     // representing the post title and post body here in post which is fetched in content.js
     return (
-      <>
-        {this.renderAuthor()}
-        {this.renderDelete()}
-        <h3>{this.state.title}</h3>
-        <p>{this.state.body}</p>
-
-        <button
-          onClick={() => {
-            this.translate();
-          }}
-        >
-          {" "}
-          Translate Button{" "}
-        </button>
-      </>
+      <article className="post">
+        <div>
+          <div>{this.renderAuthor()}</div>
+          {this.renderDelete()}
+        </div>
+        <div>
+          <h3>{this.state.title}</h3>
+          <p>{this.state.body}</p>
+        </div>
+        <div className="postButtons">
+          <button
+            className="translateButton"
+            onClick={() => {
+              this.translate();
+            }}
+          >
+            {" "}
+            Translate Button{" "}
+          </button>
+        </div>
+      </article>
     );
   }
 }

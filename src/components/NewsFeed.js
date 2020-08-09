@@ -28,13 +28,16 @@ class NewsFeed extends React.Component {
     } else {
       return (
         <div className="newsFeedBackground">
-          <div className="logoNewsFeed">
-            <img src={Logo} alt="logo" />
-          </div>
-          <>
-            <Nav />
-            <h1 className="newsfeedBlueBack" >NEWSFEED</h1>
+          <div className="newsfeedSideBar">
+            <div className="logoNewsFeed">
+              <img src={Logo} alt="logo" />
+            </div>
             <Bio />
+          </div>
+          <div className="newsfeedMainContent">
+            <Nav />
+            <h1 className="newsfeedBlueBack">NEWSFEED</h1>
+
             <h1>News Feed</h1>
             <form onSubmit={this.handleSubmit}>
               <input
@@ -67,7 +70,7 @@ class NewsFeed extends React.Component {
               <input type="submit" value="Post Feed" onClick={this.addPost} />
             </form>
             <Content />
-          </>
+          </div>
         </div>
       );
     }
@@ -106,12 +109,10 @@ class NewsFeed extends React.Component {
       let title = this.state.newsFeed;
       let body = this.state.newsFeedDesc;
 
-
       fetch(
         "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3"
       )
         .then((posts) => {
-
           return posts.json();
         })
         .then((data) => {
@@ -119,14 +120,14 @@ class NewsFeed extends React.Component {
         })
         //Assign values to data of posts.
 
-        .then(data => {
+        .then((data) => {
           const newPost = {
-            "id": uuid(), // Ensure a unique ID.
-            "userId": this.props.store.currentUser.id,
-            "img": this.props.store.currentUser.photoURL,
-            "userName": this.props.store.currentUser.name,
-            "title": title,
-            "body": body
+            id: uuid(), // Ensure a unique ID.
+            userId: this.props.store.currentUser.id,
+            img: this.props.store.currentUser.photoURL,
+            userName: this.props.store.currentUser.name,
+            title: title,
+            body: body,
           };
           const pushData = [newPost, ...data];
 
