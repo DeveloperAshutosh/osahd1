@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePosts, setCurrentUser } from ".././actions/social-media-app";
+import { updatePosts } from ".././actions/social-media-app";
 import axios from "axios";
 import "./Post.css";
 
@@ -23,6 +23,7 @@ class Post extends Component {
      */
     axios
       //link: https://cors-anywhere.herokuapp.com/
+      // user cors-anywhere to allow cors request from the front end app on restricted apis
       .get(
         `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.state.body}`
       )
@@ -63,20 +64,7 @@ class Post extends Component {
     });
   } //TRANSLATE METHOD ENDS
 
-  // Delete Method
-  delete() {
-    let updatedPostList = this.props.someRandomName.posts.filter((post) => {
-      return post.id !== this.props.postData.id;
-    });
-    // sending the dispatch of updatedPostList to the store.
-    this.props.dispatch(updatePosts(updatedPostList));
 
-    // use a put request to send updated list to our json stroage api after deleting the post.
-    axios.put(
-      "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3",
-      { posts: updatedPostList }
-    );
-  }
 
   renderAuthor() {
     for (let user of this.props.someRandomName.users) {
@@ -120,7 +108,7 @@ class Post extends Component {
           }}
           className="deleteButton"
         >
-          <em class="far fa-trash-alt"></em>
+          <em className="far fa-trash-alt"></em>
         </button>
       );
     }
@@ -145,7 +133,7 @@ class Post extends Component {
               this.translate();
             }}
           >
-            <em class="fas fa-language"></em> Translate
+            <em className="fas fa-language"></em> Translate
           </button>
         </div>
       </article>

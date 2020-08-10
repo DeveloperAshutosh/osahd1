@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Nav.css";
 
-import { setLoggedIn, setCurrentUser } from ".././actions/social-media-app";
+import { logout } from ".././actions/social-media-app";
 
 //Nav displays the menu links on the page.
 
 class Nav extends React.Component {
   logout() {
-    this.props.dispatch(setLoggedIn(false));
-    this.props.dispatch(setCurrentUser(null));
+    this.props.dispatch(logout());
   }
 
   renderLogout() {
@@ -28,9 +27,6 @@ class Nav extends React.Component {
     return (
       <nav className="navBar">
         <ul>
-          <li>
-            <Link to="/HomePage">Home Page</Link>
-          </li>
           <li>
             <Link to="/NewsFeed">News Feed</Link>
           </li>

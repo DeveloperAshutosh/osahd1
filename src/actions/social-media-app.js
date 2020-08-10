@@ -53,10 +53,20 @@ const setSearchResults = (searchResult) => {
   };
 };
 
+/**
+ * log the current user out
+ */
+const logout = () => {
+  return {
+    type: "LOGOUT"
+  }
+}
+
 export {
   updatePosts,
   updateUsers,
   setLoggedIn,
   setCurrentUser,
   setSearchResults,
+  logout
 };

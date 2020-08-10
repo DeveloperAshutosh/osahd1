@@ -48,7 +48,7 @@ class Content extends Component {
           }}
           className="refreshButton"
         >
-          <em class="fas fa-sync-alt"></em> Refresh
+          <em className="fas fa-sync-alt"></em> Refresh
         </button>
 
         <div className="container1">

@@ -2,6 +2,7 @@
 .navBar {
   display: flex;
   justify-content: space-between;
+  padding: 0 6px;
 }
 
 /* style the breadcrumb links */
@@ -51,9 +52,15 @@
   font-size: 15px;
   cursor: pointer;
   border-radius: 20px;
-  margin-right: 10px;
 }
 
 .navBar button:hover {
   background-color: rgb(79, 84, 180);
 }
+
+
+
+@media screen and (min-width: 960px) {
+.navBar {
+  padding: 0;
+}}

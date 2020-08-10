@@ -1,24 +1,32 @@
 /* set only one column for logo and search bar/breadcrumbs */
-.searchPageBackground > div:first-of-type {
+
+.searchPageBackground>div:first-of-type {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 /* style the H1 on the search page */
+
 .searchPageBackground h1 {
   background-color: rgb(43, 175, 203);
   height: 50px;
   color: rgb(255, 255, 255);
   border-radius: 20px;
   text-align: center;
+  margin-left: 7px;
   margin-right: 7px;
 }
 
 /* style the logo on search page*/
+
 .logoSearchPage {
   text-align: center;
   margin-top: 50px;
+}
+
+.noResults {
+  padding: 0 4% 0 4%;
 }
 
 /*For desktop*/
@@ -29,12 +37,11 @@
     width: 30%;
   }
   /* style the container for the breadcrumbs, h1 and search bar*/
-  .searchPageBackground > div:first-of-type > div:nth-of-type(2) {
+  .searchPageBackground>div:first-of-type>div:nth-of-type(2) {
     width: 65%;
     margin-top: 50px;
     margin-right: 50px;
   }
-
   .searchPageBackground {
     background: url(../../images/TeamBackv.png) no-repeat;
     background-size: 100%;
@@ -47,9 +54,11 @@
     min-width: 100%;
     min-height: 100%;
   }
-
   /* set only one column for logo and search bar/breadcrumbs */
-  .searchPageBackground > div:first-of-type {
+  .searchPageBackground>div:first-of-type {
     flex-direction: row;
+  }
+  .searchPageBackground h1 {
+    margin-left: 0;
   }
 }

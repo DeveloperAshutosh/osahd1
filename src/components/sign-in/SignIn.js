@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux"; // this will enable connecting the redux store
 import {
   setCurrentUser,
@@ -116,7 +115,7 @@ class SignIn extends React.Component {
         <div className="logoSignIn">
           <img src={Logo} alt="OSAHD logo" />
         </div>
-        <h3>Welcome</h3>
+        <h3 className="welcome" >Welcome</h3>
         <p className="statementSignIn">
           {" "}
           Share...Express...Connect...Your World Closer Together...{" "}

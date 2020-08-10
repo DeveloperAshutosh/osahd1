@@ -43,6 +43,12 @@ const socialMediaAppReducer = (state = initialState, action) => {
       temporaryState.searchResults = action.value;
       return temporaryState;
 
+    // log the user out
+    case "LOGOUT":
+      temporaryState.currentUser = null;
+      temporaryState.isLoggedIn = false;
+      return temporaryState;
+
     // handle values that do not match any defined case
     default:
       break;

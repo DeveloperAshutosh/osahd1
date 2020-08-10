@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { updateUsers } from "../../actions/social-media-app";
 import { v4 as uuid } from "uuid";
 import "./Signup.css";
-import { Link } from "react-router-dom";
 import Logo from "../../images/Logo.png";
 
 const initialState = {
@@ -142,7 +141,7 @@ class SignUp extends React.Component {
           <img src={Logo} alt="logo" />
         </div>
         <h3 className="headWelcome">Welcome</h3>
-        <p class="statementSignUp">
+        <p className="statementSignUp">
           {" "}
             Share...Express...Connect...Your World Closer Together...{" "}
         </p>
