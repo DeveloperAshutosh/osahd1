@@ -3,7 +3,7 @@
 .post {
   background-color: rgba(110, 200, 255, 0.4);
   /*width: 400px; /* set the width of a post */
-  border: 3px solid lightgray;
+  border: 1px solid lightgray;
   padding: 20px 20px 1px 20px;
   border-radius: 25px;
   margin: 0 4% 25px 4%;
@@ -20,7 +20,7 @@
 
 /* style the posts author name */
 
-.post div:first-of-type>p {
+.post div:first-of-type > p {
   font-weight: 600;
 }
 
@@ -49,6 +49,7 @@
   border-top: 1px solid lightgrey;
 }
 
+/* style the translate button */
 .post .postButtons button {
   padding: 5px 10px;
   border-radius: 8px;
@@ -59,8 +60,11 @@
   margin: 0 auto 15px auto;
 }
 
-/* style how buttons on a post appear*/
+.post .postButtons button:hover {
+  background-color: rgb(255, 170, 50);
+}
 
+/* style how other buttons on a post appear*/
 .post button {
   border: none;
   font-weight: 700;

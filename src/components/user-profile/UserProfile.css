@@ -1,11 +1,10 @@
 /*style the user profile area */
-
 .userProfile {
   background-color: rgba(110, 200, 255, 0.4);
   /*width: 400px; /* set the width of a post */
-  border: 3px solid lightgray;
+  border: 1px solid lightgray;
   padding: 20px 10px;
-  border-radius: 25px ;
+  border-radius: 25px;
   margin: 0 4% 25px 4%;
   display: flex;
   justify-content: space-between;
@@ -13,7 +12,6 @@
 }
 
 /* style the user profile image */
-
 .userProfile img {
   border-radius: 10px;
   width: 70px;
@@ -21,7 +19,6 @@
 }
 
 /* style the user profiles unordered list */
-
 .userProfile ul {
   display: flex;
   flex-direction: column;
@@ -33,17 +30,12 @@
   vertical-align: baseline;
 }
 
-/* style the users activities list*/
-
-
-
+/* style the usersname */
 .userProfile h3 {
   font-size: 12px;
 }
 
-
 @media screen and (min-width: 960px) {
-
   .userProfile {
     padding: 20px;
     justify-content: space-around;
