@@ -20,7 +20,7 @@ class NewsFeed extends React.Component {
       newsFeedDesc: "", //Description of the post.
     };
   }
-
+  // renderNewsFeedPage() method will show the Bio and content components that contains user details and posts created by user.
   renderNewsFeedPage() {
     if (this.props.store.isLoggedIn === false) {
       return <UnauthorizedUser />;
@@ -93,37 +93,28 @@ class NewsFeed extends React.Component {
     event.preventDefault(); // Stop the page from reloading.
 
     //Conditions will check if Title and Description fields are empty, it will show an error.
-
+    
     if (this.state.newsFeed.trim() === "") {
       document.querySelector("#errorTitle").innerHTML = "Title required."; //Error message for Title.
-<<<<<<< HEAD
-
-    }
-
-    else {
-      document.querySelector("#errorTitle").innerHTML = "";
-
-    }
+        }
+    else 
+    {
+      document.querySelector("#errorTitle").innerHTML = ""; //No Error message.
+      
+    }  
 
     if (this.state.newsFeedDesc.trim() === "") {
-      document.querySelector("#errorDesc").innerHTML = "Description required."; //Error message for Title.
-
+      document.querySelector("#errorDesc").innerHTML = "Description required."; //Error message for Description.
+     
     }
     else {
-      document.querySelector("#errorTitle").innerHTML = "";
+      document.querySelector("#errorDesc").innerHTML = ""; // No Error message.
+      
     }
-
+    
     if (this.state.newsFeed.trim() !== "" && this.state.newsFeedDesc.trim() !== "")  //Checking if the fields are not empty.
     {
-=======
-    } else if (this.state.newsFeedDesc.trim() === "") {
-      document.querySelector("#errorDesc").innerHTML = "Description required."; //Error message for Title.
-    } else if (
-      this.state.newsFeed.trim() !== "" &&
-      this.state.newsFeedDesc.trim() !== ""
-    ) {
-      //Checking if the fields are not empty.
->>>>>>> e9275ad6f61dadf551adb6580e24f5351fdf89e2
+      
       //Fetching data from API.
 
       let title = this.state.newsFeed;
@@ -160,11 +151,13 @@ class NewsFeed extends React.Component {
           );
           this.props.dispatch(updatePosts(pushData)); //dispatch the updated posts data
         });
+
+        this.setState({
+          newsFeed: "",
+          newsFeedDesc: "",
+        });
     }
-    this.setState({
-      newsFeed: "",
-      newsFeedDesc: "",
-    });
+   
   };
   render() {
     return <>{this.renderNewsFeedPage()}</>;

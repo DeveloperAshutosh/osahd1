@@ -7,11 +7,7 @@ import {
   setLoggedIn,
   updateUsers,
 } from "../../actions/social-media-app"; // actions required to dispatch redux
-<<<<<<< HEAD
-import "./Signin.css";
-=======
 import "./SignIn.css";
->>>>>>> e9275ad6f61dadf551adb6580e24f5351fdf89e2
 
 const initialState = {
   email: "",
@@ -92,15 +88,6 @@ class SignIn extends React.Component {
             this.props.dispatch(setLoggedIn(true));
             // store the existing users in redux
             this.props.dispatch(updateUsers(allUsers));
-<<<<<<< HEAD
-            // get the Newsfeed links and redirect the user
-            // redirect the user to newsfeed
-            try {
-              this.props.onNavigate.push("/Newsfeed");
-            } catch (error) {
-              this.props.history.push("/Newsfeed");
-            }
-=======
 
             // redirect the user to newsfeed
             try {
@@ -109,7 +96,6 @@ class SignIn extends React.Component {
               this.props.history.push("/NewsFeed");
             }
 
->>>>>>> e9275ad6f61dadf551adb6580e24f5351fdf89e2
           }
         }
       }); // end of async call
@@ -134,15 +120,6 @@ class SignIn extends React.Component {
           {" "}
           Share...Express...Connect...Your World Closer Together...{" "}
         </p>
-<<<<<<< HEAD
-        <section className="buttonInput">
-          <Link className="signup" to="./sign-up/SignUp">
-            SIGN UP
-          </Link>
-          <form onSubmit={this.handleSubmit}>
-            <div id="warning" onSubmit={this.handleSubmit}></div>
-            <div className="blueSolid">
-=======
 
         <section class="buttonInput">
           <button
@@ -156,7 +133,6 @@ class SignIn extends React.Component {
             <div id="warning" onSubmit={this.handleSubmit}></div>
             <div class="blueSolid">
 
->>>>>>> e9275ad6f61dadf551adb6580e24f5351fdf89e2
               <input
                 class="input1"
                 type="email"
@@ -166,10 +142,6 @@ class SignIn extends React.Component {
                 onChange={this.handleChange}
               />
               <input
-<<<<<<< HEAD
-=======
-
->>>>>>> e9275ad6f61dadf551adb6580e24f5351fdf89e2
                 className="input2"
                 type="password"
                 id="password"
