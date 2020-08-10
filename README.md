@@ -1,6 +1,6 @@
 # Milestone 2 - React/Redux
 
-![OSAHD Logo](https://github.com/TECHCareers-by-Manpower/milestone-2-react-redux-project-osahd/blob/master/public/images/Logo.png)
+![OSAHD Logo](https://github.com/TECHCareers-by-Manpower/milestone-2-react-redux-project-osahd/blob/master/src/images/Logo.png)
 
 OSAHD is a social media website that is created using HTML5, CSS3, ES6 JavaScript, git within a team context, React,
 React-Redux, and React-Router.
