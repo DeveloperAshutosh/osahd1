@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePosts, setCurrentUser } from ".././actions/social-media-app";
+import { updatePosts } from ".././actions/social-media-app";
 import axios from "axios";
+import "./Post.css";
 
 class Post extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Post extends Component {
      */
     axios
       //link: https://cors-anywhere.herokuapp.com/
+      // user cors-anywhere to allow cors request from the front end app on restricted apis
       .get(
         `https://cors-anywhere.herokuapp.com/https://translate.googleapis.com/translate_a/single?client=gtx&sl=${this.state.source}&tl=${this.state.target}&dt=t&q=${this.state.body}`
       )
@@ -62,27 +64,18 @@ class Post extends Component {
     });
   } //TRANSLATE METHOD ENDS
 
-  // Delete Method
-  delete() {
-    let updatedPostList = this.props.someRandomName.posts.filter((post) => {
-      return post.id !== this.props.postData.id;
-    });
-    // sending the dispatch of updatedPostList to the store.
-    this.props.dispatch(updatePosts(updatedPostList));
 
-    // use a put request to send updated list to our json stroage api after deleting the post.
-    axios.put(
-      "https://jsonstorage.net/api/items/f2c563c1-bff6-469b-a954-0dab52edc4c3",
-      { posts: updatedPostList }
-    );
-  }
 
   renderAuthor() {
     for (let user of this.props.someRandomName.users) {
       if (this.props.postData.userId === user.id) {
         return (
           <>
-            <img src={user.photoURL} alt="post's author" />
+            <img
+              className="photoPost"
+              src={user.photoURL}
+              alt="post's author"
+            />
             <p>{user.name}</p>
           </>
         );
@@ -113,8 +106,9 @@ class Post extends Component {
               { posts: updatedPostList }
             );
           }}
+          className="deleteButton"
         >
-          Delete
+          <em className="far fa-trash-alt"></em>
         </button>
       );
     }
@@ -123,21 +117,26 @@ class Post extends Component {
   render() {
     // representing the post title and post body here in post which is fetched in content.js
     return (
-      <>
-        {this.renderAuthor()}
-        {this.renderDelete()}
-        <h3>{this.state.title}</h3>
-        <p>{this.state.body}</p>
-
-        <button
-          onClick={() => {
-            this.translate();
-          }}
-        >
-          {" "}
-          Translate Button{" "}
-        </button>
-      </>
+      <article className="post">
+        <div>
+          <div>{this.renderAuthor()}</div>
+          {this.renderDelete()}
+        </div>
+        <div>
+          <h3>{this.state.title}</h3>
+          <p>{this.state.body}</p>
+        </div>
+        <div className="postButtons">
+          <button
+            className="translateButton"
+            onClick={() => {
+              this.translate();
+            }}
+          >
+            <em className="fas fa-language"></em> Translate
+          </button>
+        </div>
+      </article>
     );
   }
 }

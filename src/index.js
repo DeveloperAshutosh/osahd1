@@ -5,14 +5,12 @@ import "./index.css";
 import App from "./components/App";
 import NewsFeed from "./components/NewsFeed";
 import SearchPage from "./components/search-page/SearchPage";
-import HomePage from "./components/homepage/HomePage";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import socialMediaAppReducer from "./reducers/social-media-app";
 import { setLoggedIn } from "./actions/social-media-app";
 import SignUp from "./components/sign-up/SignUp";
 import SignIn from "./components/sign-in/SignIn";
-import UnauthorizedUser from "./components/unauthorized-user/UnauthorizedUser";
 
 
 
@@ -34,13 +32,9 @@ const Root = (store) => (
       <Route path="/" component={App} exact />
       <Route path="/NewsFeed" component={NewsFeed} />
       <Route path="/Search" component={SearchPage} />
-      <Route path="/HomePage" component={HomePage} />
       <Route path="/sign-up/SignUp" component={SignUp} />
       <Route path="/sign-in/SignIn" component={SignIn} />
-      <Route
-        path="/unauthorized-user/UnauthorizedUser"
-        component={UnauthorizedUser}
-      />
+      
     </Router>
   </Provider>
 );

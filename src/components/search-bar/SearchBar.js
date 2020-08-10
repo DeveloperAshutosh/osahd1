@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setSearchResults } from "../../actions/social-media-app";
+import "./SearchBar.css";
 
 class SearchBar extends React.Component {
   handleSearchTermChange(event) {
@@ -34,8 +35,8 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <>
-        <label htmlFor="search">Search</label>
+      <div className="searchBar">
+        <label htmlFor="search">Search a user name or activity</label>
         <input
           name="search"
           type="text"
@@ -44,7 +45,7 @@ class SearchBar extends React.Component {
             this.handleSearchTermChange(event);
           }}
         />
-      </>
+      </div>
     );
   }
 }

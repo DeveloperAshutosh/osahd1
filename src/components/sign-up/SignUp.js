@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { updateUsers } from "../../actions/social-media-app";
 import { v4 as uuid } from "uuid";
 import "./Signup.css";
-import { Link } from "react-router-dom";
+import Logo from "../../images/Logo.png";
 
 const initialState = {
   name: "",
@@ -40,16 +40,16 @@ class SignUp extends React.Component {
       [event.target.id]: event.target.value,
     });
   };
-  
+
   handleSubmit = (event) => {
-    
+
     event.preventDefault();
     const user = {
       id: uuid(),
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      activities: [] ,
+      activities: [],
       gender: this.state.gender,
       age: this.state.age,
       photoURL: this.state.photoURL
@@ -74,7 +74,7 @@ class SignUp extends React.Component {
       this.state.gender.trim() === ""
     ) {
 
-      if (this.state.email.trim() === ""){
+      if (this.state.email.trim() === "") {
         document.querySelector("#emailWarning").innerHTML = "emailcant be blank";
       }
 
@@ -85,7 +85,7 @@ class SignUp extends React.Component {
         document.querySelector("#nameWarning").innerHTML = "";
       }
 
-      if (this.state.email.trim() === ""){
+      if (this.state.email.trim() === "") {
         document.querySelector("#emailWarning").innerHTML = "Email cannot be blank";
       }
       else {
@@ -119,110 +119,111 @@ class SignUp extends React.Component {
       )
 
       .then((response) => {
-        
+
         this.props.dispatch(updateUsers(listOfUsers));
       });
   };
-  navigateToSignIn () {
+  navigateToSignIn() {
     console.log("whts up");
     try {
       this.props.onNavigate.push("/sign-in/SignIn");
-      
+
     } catch (error) {
       this.props.history.push("/sign-in/SignIn");
     }
-    
+
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          {this.getUsers()}
-          <div id="nameWarning"></div>
-          <label htmlFor="name">Enter Full Name: </label>
-          <input
-            type="text"
-            id="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
+        <div className="logoSignUp">
+          <img src={Logo} alt="logo" />
+        </div>
+        <h3 className="headWelcome">Welcome</h3>
+        <p className="statementSignUp">
+          {" "}
+            Share...Express...Connect...Your World Closer Together...{" "}
+        </p>
+        <section className="fieldSignUp">
+          <form onSubmit={this.handleSubmit}>
+            {this.getUsers()}
+            <div id="nameWarning"></div>
+            <input className="inputSignUp"
+              type="text"
+              id="name"
+              placeholder="Enter Full Name:"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
 
-          <div id="emailWarning"></div>
-          <label htmlFor="email">Enter Email: </label>
-          <input
-            type="email"
-            id="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
+            <div id="emailWarning"></div>
+            <input className="inputSignUp"
+              type="email"
+              id="email"
+              placeholder="Enter Email:"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
 
-          <div id="passwordWarning"></div>
-          <label htmlFor="password">Enter Password: </label>
-          <input
-            type="password"
-            id="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
+            <div id="passwordWarning"></div>
+            <input className="inputSignUp"
+              type="password"
+              id="password"
+              placeholder="Enter Password:"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
 
-          <div id="passwordConfirmationWarning"></div>
-          <label htmlFor="passwordConfirmation">Confirm Password: </label>
-          <input
-            type="password"
-            id="passwordConfirmation"
-            value={this.state.passwordConfirmation}
-            onChange={this.handleChange}
-          />
+            <div id="passwordConfirmationWarning"></div>
+            <input className="inputSignUp"
+              type="password"
+              id="passwordConfirmation"
+              placeholder="Confirm Password:"
+              value={this.state.passwordConfirmation}
+              onChange={this.handleChange}
+            />
 
-          
+            <div id="ageWarning"></div>
+            <label className="word" htmlFor="age">Enter Your Age: </label>
+            <br />
+            <input className="inputAge"
+              type="date"
+              id="age"
+              value={this.state.age}
+              onChange={this.handleChange}
+            />
 
-          <div id="ageWarning"></div>
-          <label htmlFor="age">Enter Your Age: </label>
-
-          <input
-            type="date"
-            id="age"
-            value={this.state.age}
-            onChange={this.handleChange}
-          />
-
-
-          <div id="genderWarning"></div>
-          <label htmlFor="gender">Enter Your Gender: </label>
-          <select
-            id="gender"
-            value={this.state.gender}
-            onChange={this.handleChange}
-          >
-            <option></option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-          <br />
-          <button type="submit" onSubmit={this.handleSubmit}>
-            {" "}
+            <div id="genderWarning"></div>
+            <label className="word" htmlFor="gender">Enter Your Gender: </label>
+            <br />
+            <select className="gender"
+              id="gender"
+              value={this.state.gender}
+              onChange={this.handleChange}
+            >
+              <option></option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            <br />
+            <button className="buttonSignUp" type="submit" onSubmit={this.handleSubmit}>
+              {" "}
             SIGN UP
           </button>
-          <div id="successful" ></div>
-
-        </form>
-        <button onClick =  {()=>{this.navigateToSignIn()}}> SIGN IN </button>
-            <p >
-
-            {" "}
-              Share...Express...Connect...Your world closer together...{" "}
-            </p>
-          
+            <button className="buttonSignIn" onClick={() => { this.navigateToSignIn() }}> SIGN IN </button>
+            <div id="successful" ></div>
+          </form>
+        </section>
+        <div className="frontBlue"></div>
+        <div className="backBlue"></div>
       </div>
     );
   }
 }
-
 function mapStateToProps(state) {
   return {
     store: state,
   };
 }
-
 export default connect(mapStateToProps)(SignUp);

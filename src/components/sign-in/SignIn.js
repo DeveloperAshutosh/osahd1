@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux"; // this will enable connecting the redux store
 import {
   setCurrentUser,
@@ -8,6 +7,7 @@ import {
   updateUsers,
 } from "../../actions/social-media-app"; // actions required to dispatch redux
 import "./SignIn.css";
+import Logo from "../../images/Logo.png";
 
 const initialState = {
   email: "",
@@ -112,17 +112,16 @@ class SignIn extends React.Component {
   render() {
     return (
       <div>
-        <div className="logo">
-          <img src="images/Logo.png" alt="logo" />
+        <div className="logoSignIn">
+          <img src={Logo} alt="OSAHD logo" />
         </div>
-        <h3>Welcome</h3>
-        <p className="#">
+        <h3 className="welcome" >Welcome</h3>
+        <p className="statementSignIn">
           {" "}
           Share...Express...Connect...Your World Closer Together...{" "}
         </p>
-
-        <section class="buttonInput">
-          <button
+        <section className="fieldSignIn">
+          <button className="signUpButton"
             onClick={() => {
               this.navigateToSignUp();
             }}
@@ -131,10 +130,9 @@ class SignIn extends React.Component {
           </button>
           <form onSubmit={this.handleSubmit}>
             <div id="warning" onSubmit={this.handleSubmit}></div>
-            <div class="blueSolid">
-
+            <div className="blueSolid">
               <input
-                class="input1"
+                className="input1"
                 type="email"
                 id="email"
                 placeholder="Enter Email:"
@@ -142,7 +140,6 @@ class SignIn extends React.Component {
                 onChange={this.handleChange}
               />
               <input
-
                 className="input2"
                 type="password"
                 id="password"
@@ -151,12 +148,13 @@ class SignIn extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-            <button type="submit" onSubmit={this.handleSubmit}>
+            <button className="signInButton" type="submit" onSubmit={this.handleSubmit}>
               {" "}
               SIGN IN{" "}
             </button>
           </form>
         </section>
+        <div className="blueOpacity"></div>
       </div>
     );
   }

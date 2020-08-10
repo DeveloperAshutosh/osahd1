@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { updateUsers, setCurrentUser } from "../../actions/social-media-app";
 import axios from "axios";
+import "./Bio.css";
 
 class Bio extends React.Component {
   constructor(props) {
@@ -55,8 +56,12 @@ class Bio extends React.Component {
 
   render() {
     return (
-      <>
-        <img src={this.props.store.currentUser.photoURL} alt="current user" />
+      <div className="bio">
+        <img
+          className="myImage"
+          src={this.props.store.currentUser.photoURL}
+          alt="current user"
+        />
         <h2>{this.props.store.currentUser.name}</h2>
         <p>Email: {this.props.store.currentUser.email}</p>
         <p>
@@ -80,7 +85,7 @@ class Bio extends React.Component {
         >
           Add Activity
         </button>
-      </>
+      </div>
     );
   }
 }
