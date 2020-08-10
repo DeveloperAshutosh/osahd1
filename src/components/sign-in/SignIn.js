@@ -95,7 +95,6 @@ class SignIn extends React.Component {
             } catch (error) {
               this.props.history.push("/NewsFeed");
             }
-
           }
         }
       }); // end of async call
@@ -115,13 +114,14 @@ class SignIn extends React.Component {
         <div className="logoSignIn">
           <img src={Logo} alt="OSAHD logo" />
         </div>
-        <h3 className="welcome" >Welcome</h3>
+        <h3 className="welcome">Welcome</h3>
         <p className="statementSignIn">
           {" "}
           Share...Express...Connect...Your World Closer Together...{" "}
         </p>
         <section className="fieldSignIn">
-          <button className="signUpButton"
+          <button
+            className="signUpButton"
             onClick={() => {
               this.navigateToSignUp();
             }}
@@ -148,7 +148,11 @@ class SignIn extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-            <button className="signInButton" type="submit" onSubmit={this.handleSubmit}>
+            <button
+              className="signInButton"
+              type="submit"
+              onSubmit={this.handleSubmit}
+            >
               {" "}
               SIGN IN{" "}
             </button>

@@ -11,11 +11,10 @@
 .searchBar input {
   padding: 8px 15px;
   border-radius: 20px;
-  border: 3px solid rgb(255, 170, 50);
+  border: 2px solid rgb(255, 170, 50);
   width: 89%;
   margin-bottom: 25px;
 }
-
 
 @media screen and (min-width: 960px) {
   .searchBar {
@@ -23,7 +22,7 @@
     margin-right: 0;
   }
   /* style the search bar input field*/
-.searchBar input {
-  width: 95.3%;
-}
+  .searchBar input {
+    width: 95.3%;
+  }
 }

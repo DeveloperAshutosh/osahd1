@@ -8,9 +8,9 @@
 
 /* style any input fields under the bio */
 .bio input {
-  padding: 8px 20px;
+  padding: 8px 10px;
   border-radius: 15px;
-  border: 3px solid rgb(255, 170, 50);
+  border: 2px solid rgb(255, 170, 50);
   width: 86%;
   margin-bottom: 10px;
 }
@@ -33,9 +33,9 @@
   background-color: rgb(79, 84, 180);
 }
 
-
 @media screen and (min-width: 960px) {
-
   /* style any input fields under the bio */
-.bio input {width: 90%;}
+  .bio input {
+    width: 90%;
+  }
 }
