@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Nav.css";
 
@@ -10,6 +10,7 @@ import { logout } from ".././actions/social-media-app";
 class Nav extends React.Component {
   logout() {
     this.props.dispatch(logout());
+    this.props.history.push("/sign-in/SignIn");
   }
 
   renderLogout() {
@@ -45,4 +46,4 @@ function mapStateToProps(state) {
     store: state,
   };
 }
-export default connect(mapStateToProps)(Nav);
+export default withRouter(connect(mapStateToProps)(Nav));
