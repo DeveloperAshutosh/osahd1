@@ -1,8 +1,8 @@
 /* style the whole post container */
 .post {
-  background-color: white;
+  background-color: rgba(110, 200, 255, 0.4);
   /*width: 400px; /* set the width of a post */
-  border: 1px solid lightgray;
+  border: 3px solid lightgray;
   padding: 20px;
   border-radius: 25px;
   margin: 0 4% 25px 4%;

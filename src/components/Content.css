@@ -16,3 +16,7 @@
   font-weight: bold;
   margin: 0 auto 15px auto;
 }
+
+.refreshButton:hover {
+  background-color: rgba(236, 138, 29, 0.4);
+}

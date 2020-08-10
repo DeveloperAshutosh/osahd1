@@ -1,4 +1,4 @@
-/* set only one column fro logo and search bar/breadcrumbs */
+/* set only one column for logo and search bar/breadcrumbs */
 .searchPageBackground > div:first-of-type {
   display: flex;
   flex-direction: column;

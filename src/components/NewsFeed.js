@@ -32,7 +32,7 @@ class NewsFeed extends React.Component {
             <img src={Logo} alt="logo" />
             <>
               <Nav />
-              <h1 className="newsfeedBlueBack" >NEWSFEED</h1>
+              <h1 className="newsfeedBlueBack" >NEWS FEED</h1>
               <Bio />
               <h1>News Feed</h1>
               <form onSubmit={this.handleSubmit}>

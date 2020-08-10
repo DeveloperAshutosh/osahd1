@@ -17,8 +17,7 @@
         min-height: 100%;
     }
     .logoNewsFeed {
-        margin-top: 80px;
-        margin-right: 920px;
+        width: 30%;
     }
     .newsfeedBlueBack {
         background-color: rgb(43, 175, 203);
